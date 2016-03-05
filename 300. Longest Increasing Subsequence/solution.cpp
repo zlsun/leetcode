@@ -20,6 +20,6 @@ Credits:Special thanks to @pbrother for adding this problem and creating all tes
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

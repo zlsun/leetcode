@@ -17,6 +17,6 @@ return [3, 4].
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

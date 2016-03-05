@@ -11,6 +11,6 @@ Note: You may not slant the container.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

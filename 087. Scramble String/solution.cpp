@@ -65,6 +65,6 @@ Given two strings s1 and s2 of the same length, determine if s2 is a scrambled s
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

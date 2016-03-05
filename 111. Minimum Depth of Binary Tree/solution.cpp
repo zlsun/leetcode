@@ -10,6 +10,6 @@ The minimum depth is the number of nodes along the shortest path from the root n
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

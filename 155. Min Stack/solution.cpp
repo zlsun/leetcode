@@ -17,6 +17,6 @@ getMin() -- Retrieve the minimum element in the stack.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

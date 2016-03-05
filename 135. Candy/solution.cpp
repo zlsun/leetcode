@@ -16,6 +16,6 @@ What is the minimum candies you must give?
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

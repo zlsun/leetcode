@@ -14,6 +14,6 @@ Credits:Special thanks to @Freezen for adding this problem and creating all test
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

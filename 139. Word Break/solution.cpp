@@ -15,6 +15,6 @@ Return true because "leetcode" can be segmented as "leet code".
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

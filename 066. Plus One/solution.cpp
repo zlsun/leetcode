@@ -10,6 +10,6 @@ The digits are stored such that the most significant digit is at the head of the
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

@@ -15,6 +15,6 @@ There is a more generic way of solving this problem.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

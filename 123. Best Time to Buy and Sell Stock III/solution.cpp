@@ -13,6 +13,6 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

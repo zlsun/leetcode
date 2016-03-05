@@ -22,6 +22,6 @@ The signature of the C++ function had been updated. If you still see your functi
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

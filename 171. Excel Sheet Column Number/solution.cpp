@@ -25,6 +25,6 @@ Credits:Special thanks to @ts for adding this problem and creating all test case
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

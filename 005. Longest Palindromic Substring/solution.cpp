@@ -9,6 +9,6 @@ Given a string S, find the longest palindromic substring in S. You may assume th
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

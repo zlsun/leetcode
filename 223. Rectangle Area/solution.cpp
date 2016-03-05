@@ -14,6 +14,6 @@ Credits:Special thanks to @mithmatt for adding this problem, creating the above 
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

@@ -18,6 +18,6 @@ Note: The sequence of integers will be represented as a string.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

@@ -10,6 +10,6 @@ If you were only permitted to complete at most one transaction (ie, buy one and 
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

@@ -13,6 +13,6 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

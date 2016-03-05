@@ -9,6 +9,6 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

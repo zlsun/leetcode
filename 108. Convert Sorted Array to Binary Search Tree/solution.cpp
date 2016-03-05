@@ -9,6 +9,6 @@ Given an array where elements are sorted in ascending order, convert it to a hei
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

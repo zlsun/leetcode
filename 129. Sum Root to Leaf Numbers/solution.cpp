@@ -24,6 +24,6 @@ Return the sum = 12 + 13 = 25.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

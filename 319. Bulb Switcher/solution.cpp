@@ -25,6 +25,6 @@ So you should return 1, because there is only one bulb is on.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

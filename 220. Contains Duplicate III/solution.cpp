@@ -9,6 +9,6 @@ Given an array of integers, find out whether there are two distinct indices i an
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

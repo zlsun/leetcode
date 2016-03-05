@@ -35,6 +35,6 @@ isMatch("aab", "c*a*b") → true
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

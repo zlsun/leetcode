@@ -28,6 +28,6 @@ Given target = 3, return true.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

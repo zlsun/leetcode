@@ -23,6 +23,6 @@ Credits:Special thanks to @stellari for adding this problem, creating these two 
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

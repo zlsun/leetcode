@@ -10,6 +10,6 @@ Note: You can only move either down or right at any point in time.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

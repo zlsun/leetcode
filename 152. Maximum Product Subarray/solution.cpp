@@ -13,6 +13,6 @@ the contiguous subarray [2,3] has the largest product = 6.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

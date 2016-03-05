@@ -20,6 +20,6 @@ Note: Do not use the eval built-in library function.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

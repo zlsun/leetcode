@@ -17,6 +17,6 @@ You should return the indices: [0,9].
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

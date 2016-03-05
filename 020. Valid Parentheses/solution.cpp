@@ -10,6 +10,6 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

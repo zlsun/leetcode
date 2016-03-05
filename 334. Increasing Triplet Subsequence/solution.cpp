@@ -30,6 +30,6 @@ Credits:Special thanks to @DjangoUnchained for adding this problem and creating 
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

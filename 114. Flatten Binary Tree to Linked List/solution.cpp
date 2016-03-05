@@ -51,6 +51,6 @@ If you notice carefully in the flattened tree, each node's right child points to
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

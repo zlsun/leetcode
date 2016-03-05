@@ -13,6 +13,6 @@ Given an array S of n integers, find three integers in S such that the sum is cl
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

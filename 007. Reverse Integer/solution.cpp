@@ -23,6 +23,6 @@ Test cases had been added to test the overflow behavior.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

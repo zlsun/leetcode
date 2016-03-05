@@ -17,6 +17,6 @@ Could you optimize your algorithm to use only O(k) extra space?
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

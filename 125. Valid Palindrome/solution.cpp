@@ -19,6 +19,6 @@ For the purpose of this problem, we define empty string as valid palindrome.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

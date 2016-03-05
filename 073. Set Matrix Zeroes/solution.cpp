@@ -20,6 +20,6 @@ Could you devise a constant space solution?
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

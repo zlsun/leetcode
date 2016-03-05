@@ -21,6 +21,6 @@ Given m, n satisfy the following condition:
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

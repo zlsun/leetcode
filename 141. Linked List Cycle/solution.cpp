@@ -13,6 +13,6 @@ Can you solve it without using extra space?
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

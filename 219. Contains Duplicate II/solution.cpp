@@ -9,6 +9,6 @@ Given an array of integers and an integer k, find out whether there are two dist
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

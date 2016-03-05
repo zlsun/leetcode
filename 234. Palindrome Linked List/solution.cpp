@@ -12,6 +12,6 @@ Could you do it in O(n) time and O(1) space?
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

@@ -9,6 +9,6 @@ Merge two sorted linked lists and return it as a new list. The new list should b
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

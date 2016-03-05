@@ -19,6 +19,6 @@ You may assume both s and t have the same length.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

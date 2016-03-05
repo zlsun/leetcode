@@ -26,6 +26,6 @@ For now, the judge is able to judge based on one instance of gray code sequence.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

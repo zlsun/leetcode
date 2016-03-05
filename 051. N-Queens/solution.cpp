@@ -35,6 +35,6 @@ There exist two distinct solutions to the 4-queens puzzle:
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

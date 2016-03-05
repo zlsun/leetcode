@@ -17,6 +17,6 @@ A solution is ["cats and dog", "cat sand dog"].
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

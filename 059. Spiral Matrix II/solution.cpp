@@ -25,6 +25,6 @@ You should return the following matrix:
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

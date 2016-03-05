@@ -13,6 +13,6 @@ You may assume that all inputs are consist of lowercase letters a-z.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

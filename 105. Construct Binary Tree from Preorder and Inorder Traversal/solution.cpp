@@ -12,6 +12,6 @@ You may assume that duplicates do not exist in the tree.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

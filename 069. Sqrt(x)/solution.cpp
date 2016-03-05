@@ -10,6 +10,6 @@ Compute and return the square root of x.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

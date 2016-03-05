@@ -19,6 +19,6 @@ Although the above answer is in lexicographical order, your answer could be in a
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

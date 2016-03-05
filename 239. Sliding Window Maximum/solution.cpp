@@ -40,6 +40,6 @@ Remove redundant elements and the queue should store only elements that need to 
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

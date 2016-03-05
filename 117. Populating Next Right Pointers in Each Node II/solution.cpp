@@ -39,6 +39,6 @@ After calling your function, the tree should look like:
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

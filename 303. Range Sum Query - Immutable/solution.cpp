@@ -23,6 +23,6 @@ There are many calls to sumRange function.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

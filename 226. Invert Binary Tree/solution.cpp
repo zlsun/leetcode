@@ -36,6 +36,6 @@ Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

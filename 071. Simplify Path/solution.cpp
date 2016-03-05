@@ -22,6 +22,6 @@ In this case, you should ignore redundant slashes and return "/home/foo".
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

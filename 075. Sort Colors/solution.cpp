@@ -24,6 +24,6 @@ Could you come up with an one-pass algorithm using only constant space?
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

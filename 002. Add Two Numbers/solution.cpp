@@ -12,6 +12,6 @@ Output: 7 -> 0 -> 8
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

@@ -29,6 +29,6 @@ word = "ABCB", -> returns false.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

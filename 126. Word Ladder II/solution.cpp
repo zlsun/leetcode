@@ -34,6 +34,6 @@ All words contain only lowercase alphabetic characters.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

@@ -23,6 +23,6 @@ Given n = 3, there are a total of 5 unique BST's.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

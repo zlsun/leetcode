@@ -27,6 +27,6 @@ For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another exa
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

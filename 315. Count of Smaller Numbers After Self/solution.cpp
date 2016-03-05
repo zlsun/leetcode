@@ -27,6 +27,6 @@ Return the array [2, 1, 1, 0].
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

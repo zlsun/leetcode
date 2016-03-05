@@ -27,7 +27,7 @@ TEMPLATES = {
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }
 ''',
@@ -41,6 +41,8 @@ import sys, os
 sys.path.append(os.path.abspath('..'))
 from utils import *
 
+if __name__ == "__main__":
+    s = Solution()
 
 #
 ''',
@@ -68,9 +70,9 @@ def save(name):
     fname = '{}/solution.{}'.format(folder, TYPE)
     if not exists(folder):
         mkdir(folder)
-    # if exists(fname):
-    #     print(fname, 'exist')
-    #     return
+    if exists(fname):
+        print(fname, 'exist')
+        return
 
     f = open(fname, "w")
     f.write(TEMPLATES[TYPE] % info)

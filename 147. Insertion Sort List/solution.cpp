@@ -9,6 +9,6 @@ Sort a linked list using insertion sort.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

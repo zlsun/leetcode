@@ -15,6 +15,6 @@ Return 1 since the palindrome partitioning ["aa","b"] could be produced using 1 
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

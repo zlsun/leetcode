@@ -26,6 +26,6 @@ You may assume the number of calls to update and sumRange function is distribute
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

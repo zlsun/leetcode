@@ -29,6 +29,6 @@ Topological sort could also be done via BFS.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

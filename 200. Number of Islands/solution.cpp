@@ -16,6 +16,6 @@ Credits:Special thanks to @mithmatt for adding this problem and creating all tes
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

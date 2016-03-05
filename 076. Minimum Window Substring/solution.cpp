@@ -21,6 +21,6 @@ If there are multiple such windows, you are guaranteed that there will always be
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

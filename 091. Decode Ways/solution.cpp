@@ -27,6 +27,6 @@ The number of ways decoding "12" is 2.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

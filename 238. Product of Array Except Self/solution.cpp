@@ -15,6 +15,6 @@ Could you solve it with constant space complexity? (Note: The output array does 
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

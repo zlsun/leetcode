@@ -15,6 +15,6 @@ return ["255.255.11.135", "255.255.111.35"]. (Order does not matter)
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

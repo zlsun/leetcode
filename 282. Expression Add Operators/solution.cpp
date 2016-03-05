@@ -22,6 +22,6 @@ Credits:Special thanks to @davidtan1890 for adding this problem and creating all
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

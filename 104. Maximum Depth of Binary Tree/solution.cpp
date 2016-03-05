@@ -10,6 +10,6 @@ The maximum depth is the number of nodes along the longest path from the root no
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

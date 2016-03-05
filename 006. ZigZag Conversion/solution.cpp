@@ -24,6 +24,6 @@ convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

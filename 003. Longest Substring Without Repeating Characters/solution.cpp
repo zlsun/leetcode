@@ -9,6 +9,6 @@ Given a string, find the length of the longest substring without repeating chara
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

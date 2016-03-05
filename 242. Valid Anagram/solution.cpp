@@ -19,6 +19,6 @@ What if the inputs contain unicode characters? How would you adapt your solution
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

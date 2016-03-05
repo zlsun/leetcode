@@ -19,6 +19,6 @@ return 10.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

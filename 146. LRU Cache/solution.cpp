@@ -12,6 +12,6 @@ set(key, value) - Set or insert the value if the key is not already present. Whe
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

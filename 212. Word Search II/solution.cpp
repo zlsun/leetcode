@@ -37,6 +37,6 @@ If the current candidate does not exist in all words' prefix, you could stop bac
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

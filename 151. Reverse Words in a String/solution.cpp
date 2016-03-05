@@ -32,6 +32,6 @@ Reduce them to a single space in the reversed string.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

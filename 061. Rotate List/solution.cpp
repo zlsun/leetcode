@@ -14,6 +14,6 @@ return 4->5->1->2->3->NULL.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

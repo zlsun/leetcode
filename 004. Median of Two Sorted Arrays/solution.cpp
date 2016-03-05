@@ -9,6 +9,6 @@ There are two sorted arrays nums1 and nums2 of size m and n respectively. Find t
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

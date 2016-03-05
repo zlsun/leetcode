@@ -17,6 +17,6 @@ return 1->2->2->4->3->5.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

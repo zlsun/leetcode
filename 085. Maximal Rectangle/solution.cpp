@@ -9,6 +9,6 @@ Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle con
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

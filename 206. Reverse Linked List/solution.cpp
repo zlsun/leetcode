@@ -12,6 +12,6 @@ A linked list can be reversed either iteratively or recursively. Could you imple
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

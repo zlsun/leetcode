@@ -13,6 +13,6 @@ Write a function to determine if a given target is in the array.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

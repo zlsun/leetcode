@@ -46,6 +46,6 @@ The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

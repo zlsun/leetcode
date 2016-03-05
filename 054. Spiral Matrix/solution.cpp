@@ -25,6 +25,6 @@ You should return [1,2,3,6,9,8,7,4,5].
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

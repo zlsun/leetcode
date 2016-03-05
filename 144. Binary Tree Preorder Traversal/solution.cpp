@@ -27,6 +27,6 @@ Note: Recursive solution is trivial, could you do it iteratively?
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

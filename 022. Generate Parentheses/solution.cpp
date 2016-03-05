@@ -13,6 +13,6 @@ For example, given n = 3, a solution set is:
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

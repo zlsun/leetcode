@@ -38,6 +38,6 @@ If nums = [1,2,3], a solution is:
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

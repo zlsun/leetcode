@@ -40,6 +40,6 @@ In this case, that line should be left-justified.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

@@ -23,6 +23,6 @@ You can assume that you can always reach the last index.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

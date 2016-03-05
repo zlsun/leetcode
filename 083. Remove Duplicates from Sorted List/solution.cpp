@@ -15,6 +15,6 @@ Given 1->1->2->3->3, return 1->2->3.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

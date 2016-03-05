@@ -10,6 +10,6 @@ Note: The numbers can be arbitrarily large and are non-negative.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

@@ -11,6 +11,6 @@ Return a deep copy of the list.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

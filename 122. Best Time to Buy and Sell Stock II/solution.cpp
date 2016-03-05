@@ -10,6 +10,6 @@ Design an algorithm to find the maximum profit. You may complete as many transac
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

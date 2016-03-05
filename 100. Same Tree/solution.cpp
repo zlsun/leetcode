@@ -11,6 +11,6 @@ Two binary trees are considered equal if they are structurally identical and the
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

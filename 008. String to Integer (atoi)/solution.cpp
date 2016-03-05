@@ -25,6 +25,6 @@ If no valid conversion could be performed, a zero value is returned. If the corr
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

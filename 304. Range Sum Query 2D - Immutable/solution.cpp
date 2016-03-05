@@ -39,6 +39,6 @@ You may assume that row1 ≤ row2 and col1 ≤ col2.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

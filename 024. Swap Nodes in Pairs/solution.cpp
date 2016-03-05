@@ -15,6 +15,6 @@ Your algorithm should use only constant space. You may not modify the values in 
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

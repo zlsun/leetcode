@@ -13,6 +13,6 @@ Credits:Special thanks to @jianchao.li.fighter for adding this problem and creat
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

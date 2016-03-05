@@ -17,6 +17,6 @@ Your function should return length = 5, with the first five elements of nums bei
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

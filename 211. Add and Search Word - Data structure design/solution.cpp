@@ -38,6 +38,6 @@ You should be familiar with how a Trie works. If not, please work on this proble
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

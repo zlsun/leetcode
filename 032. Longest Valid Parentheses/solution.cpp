@@ -13,6 +13,6 @@ Another example is ")()())", where the longest valid parentheses substring is "(
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

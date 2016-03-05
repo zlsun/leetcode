@@ -10,6 +10,6 @@ Now, instead outputting board configurations, return the total number of distinc
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

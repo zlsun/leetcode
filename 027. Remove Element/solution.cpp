@@ -11,6 +11,6 @@ The order of elements can be changed. It doesn't matter what you leave beyond th
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

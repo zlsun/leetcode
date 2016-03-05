@@ -13,6 +13,6 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

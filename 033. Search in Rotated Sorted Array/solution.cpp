@@ -12,6 +12,6 @@ You may assume no duplicate exists in the array.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

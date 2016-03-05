@@ -21,6 +21,6 @@ There are many edge cases. What are some good test cases? Does your code work wi
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

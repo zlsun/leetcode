@@ -15,6 +15,6 @@ return [1,6],[8,10],[15,18].
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

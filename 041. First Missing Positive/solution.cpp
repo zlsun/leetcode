@@ -17,6 +17,6 @@ Your algorithm should run in O(n) time and uses constant space.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

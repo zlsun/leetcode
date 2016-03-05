@@ -23,6 +23,6 @@ Credits:Special thanks to @minglotus6 for adding this problem and creating all t
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

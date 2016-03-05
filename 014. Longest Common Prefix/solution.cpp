@@ -9,6 +9,6 @@ Write a function to find the longest common prefix string amongst an array of st
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

@@ -15,6 +15,6 @@ A valid Sudoku board (partially filled) is not necessarily solvable. Only the fi
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

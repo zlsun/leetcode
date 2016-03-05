@@ -37,6 +37,6 @@ Visually, the graph looks like the following:
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

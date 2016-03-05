@@ -23,6 +23,6 @@ The solution set must not contain duplicate quadruplets.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

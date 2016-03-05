@@ -22,6 +22,6 @@ The return format had been changed to zero-based indices. Please read the above 
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

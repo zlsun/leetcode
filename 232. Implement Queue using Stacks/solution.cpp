@@ -23,6 +23,6 @@ You may assume that all operations are valid (for example, no pop or peek operat
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

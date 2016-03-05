@@ -15,6 +15,6 @@ Note: m and n will be at most 100.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

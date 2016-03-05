@@ -18,6 +18,6 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

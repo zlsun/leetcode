@@ -9,6 +9,6 @@ Given a singly linked list where elements are sorted in ascending order, convert
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

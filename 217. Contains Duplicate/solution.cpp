@@ -9,6 +9,6 @@ Given an array of integers, find if the array contains any duplicates. Your func
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

@@ -29,6 +29,6 @@ Credits:Special thanks to @jeantimex for adding this problem and creating all te
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

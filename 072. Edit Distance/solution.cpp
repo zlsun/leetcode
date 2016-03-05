@@ -17,6 +17,6 @@ c) Replace a character
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

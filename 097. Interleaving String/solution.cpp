@@ -19,6 +19,6 @@ When s3 = "aadbbbaccc", return false.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }

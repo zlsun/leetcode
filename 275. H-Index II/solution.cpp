@@ -11,6 +11,6 @@ Expected runtime complexity is in O(log n) and the input is sorted.
 using namespace std;
 
 int main() {
-
+    Solution s;
     return 0;
 }
