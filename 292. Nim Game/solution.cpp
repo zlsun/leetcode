@@ -16,6 +16,16 @@ Credits:Special thanks to @jianchao.li.fighter for adding this problem and creat
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    bool canWinNim(int n) {
+        return n % 4 != 0;
+    }
+};
+
 int main() {
+    Solution s;
+    zlog s.canWinNim(4);
+    zlog s.canWinNim(3);
     return 0;
 }
