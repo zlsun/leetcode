@@ -15,11 +15,8 @@ wordList = ["hot","dot","dog","lot","log"]
 Return
 
   [
-
     ["hit","hot","dot","dog","cog"],
-
     ["hit","hot","lot","log","cog"]
-
   ]
 
 Note:
@@ -32,6 +29,13 @@ All words contain only lowercase alphabetic characters.
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    vector<vector<string>> findLadders(string beginWord, string endWord, unordered_set<string> &wordList) {
+        
+    }
+};
 
 int main() {
     Solution s;

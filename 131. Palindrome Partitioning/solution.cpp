@@ -9,11 +9,8 @@ For example, given s = "aab",
 Return
 
   [
-
     ["aa","b"],
-
     ["a","a","b"]
-
   ]
 
 **/
@@ -21,6 +18,13 @@ Return
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    vector<vector<string>> partition(string s) {
+        
+    }
+};
 
 int main() {
     Solution s;

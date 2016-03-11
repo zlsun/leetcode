@@ -5,20 +5,24 @@ Given a string which contains only lowercase letters, remove duplicate letters s
 Example:
 
 Given "bcabc"
-
 Return "abc"
 
 Given "cbacdcbc"
-
 Return "acdb"
 
 Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
-
 **/
 
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    string removeDuplicateLetters(string s) {
+        
+    }
+};
 
 int main() {
     Solution s;

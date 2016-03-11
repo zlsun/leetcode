@@ -17,16 +17,37 @@ Depending on your language, queue may not be supported natively. You may simulat
 You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).
 
 Update (2015-06-11):
-
 The class name of the Java function had been updated to MyStack instead of Stack.
 
 Credits:Special thanks to @jianchao.li.fighter for adding this problem and all test cases.
-
 **/
 
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Stack {
+public:
+    // Push element x onto stack.
+    void push(int x) {
+        
+    }
+
+    // Removes the element on top of the stack.
+    void pop() {
+        
+    }
+
+    // Get the top element.
+    int top() {
+        
+    }
+
+    // Return whether the stack is empty.
+    bool empty() {
+        
+    }
+};
 
 int main() {
     Solution s;

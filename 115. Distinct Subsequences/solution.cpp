@@ -15,6 +15,13 @@ Return 3.
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    int numDistinct(string s, string t) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

@@ -7,7 +7,6 @@ You have a car with an unlimited gas tank and it costs cost[i] of gas to travel 
 Return the starting gas station's index if you can travel around the circuit once, otherwise return -1.
 
 Note:
-
 The solution is guaranteed to be unique.
 
 **/
@@ -15,6 +14,13 @@ The solution is guaranteed to be unique.
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        
+    }
+};
 
 int main() {
     Solution s;

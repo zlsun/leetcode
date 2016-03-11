@@ -11,7 +11,6 @@ Elements in a combination (a1, a2, … , ak) must be in non-descending order. (i
 The solution set must not contain duplicate combinations.
 
 For example, given candidate set 2,3,6,7 and target 7, 
-
 A solution set is: 
 [7] 
 [2, 2, 3] 
@@ -21,6 +20,13 @@ A solution set is:
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        
+    }
+};
 
 int main() {
     Solution s;

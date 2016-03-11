@@ -13,7 +13,6 @@ endWord = "cog"
 wordList = ["hot","dot","dog","lot","log"]
 
 As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog",
-
 return its length 5.
 
 Note:
@@ -27,6 +26,13 @@ All words contain only lowercase alphabetic characters.
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    int ladderLength(string beginWord, string endWord, unordered_set<string>& wordList) {
+        
+    }
+};
 
 int main() {
     Solution s;

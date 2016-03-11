@@ -16,6 +16,25 @@ getMin() -- Retrieve the minimum element in the stack.
 #include "../utils.h"
 using namespace std;
 
+class MinStack {
+public:
+    void push(int x) {
+        
+    }
+
+    void pop() {
+        
+    }
+
+    int top() {
+        
+    }
+
+    int getMin() {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

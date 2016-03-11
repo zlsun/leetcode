@@ -10,12 +10,18 @@ Your runtime complexity should be less than O(n2).
 There is only one duplicate number in the array, but it could be repeated more than once.
 
 Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
-
 **/
 
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        
+    }
+};
 
 int main() {
     Solution s;

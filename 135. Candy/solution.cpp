@@ -15,6 +15,13 @@ What is the minimum candies you must give?
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    int candy(vector<int>& ratings) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

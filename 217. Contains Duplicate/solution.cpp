@@ -8,6 +8,13 @@ Given an array of integers, find if the array contains any duplicates. Your func
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

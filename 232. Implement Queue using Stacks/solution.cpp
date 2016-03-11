@@ -22,6 +22,29 @@ You may assume that all operations are valid (for example, no pop or peek operat
 #include "../utils.h"
 using namespace std;
 
+class Queue {
+public:
+    // Push element x to the back of queue.
+    void push(int x) {
+        
+    }
+
+    // Removes the element from in front of queue.
+    void pop(void) {
+        
+    }
+
+    // Get the front element.
+    int peek(void) {
+        
+    }
+
+    // Return whether the queue is empty.
+    bool empty(void) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

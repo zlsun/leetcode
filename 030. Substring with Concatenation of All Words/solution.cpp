@@ -7,7 +7,6 @@ s: "barfoothefoobarman"
 words: ["foo", "bar"]
 
 You should return the indices: [0,9].
-
 (order does not matter).
 
 **/
@@ -15,6 +14,13 @@ You should return the indices: [0,9].
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    vector<int> findSubstring(string s, vector<string>& words) {
+        
+    }
+};
 
 int main() {
     Solution s;

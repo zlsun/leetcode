@@ -10,6 +10,13 @@ Returns the index of the first occurrence of needle in haystack, or -1 if needle
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

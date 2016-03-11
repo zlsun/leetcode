@@ -17,12 +17,18 @@ Could you solve it in-place? Remember that the board needs to be updated at the 
 In this question, we represent the board using a 2D array. In principle, the board is infinite, which would cause problems when the active area encroaches the border of the array. How would you address these problems?
 
 Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
-
 **/
 
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    void gameOfLife(vector<vector<int>>& board) {
+        
+    }
+};
 
 int main() {
     Solution s;

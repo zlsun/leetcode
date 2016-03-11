@@ -8,6 +8,13 @@ Given an array of integers and an integer k, find out whether there are two dist
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

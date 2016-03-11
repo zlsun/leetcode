@@ -7,9 +7,7 @@ Above is a histogram where width of each bar is 1, given height = [2,1,5,6,2,3].
 The largest rectangle is shown in the shaded area, which has area = 10 unit.
 
 For example,
-
 Given heights = [2,1,5,6,2,3],
-
 return 10.
 
 **/
@@ -17,6 +15,13 @@ return 10.
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        
+    }
+};
 
 int main() {
     Solution s;

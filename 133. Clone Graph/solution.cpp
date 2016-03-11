@@ -19,15 +19,10 @@ Third node is labeled as 2. Connect node 2 to node 2 (itself), thus forming a se
 Visually, the graph looks like the following:
 
        1
-
       / \
-
      /   \
-
     0 --- 2
-
          / \
-
          \_/
 
 **/
@@ -35,6 +30,21 @@ Visually, the graph looks like the following:
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+/**
+ * Definition for undirected graph.
+ * struct UndirectedGraphNode {
+ *     int label;
+ *     vector<UndirectedGraphNode *> neighbors;
+ *     UndirectedGraphNode(int x) : label(x) {};
+ * };
+ */
+class Solution {
+public:
+    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
+        
+    }
+};
 
 int main() {
     Solution s;

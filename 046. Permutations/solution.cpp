@@ -12,6 +12,13 @@ For example,
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

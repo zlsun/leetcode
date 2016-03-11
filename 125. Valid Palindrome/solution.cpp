@@ -7,7 +7,6 @@ For example,
 "race a car" is not a palindrome.
 
 Note:
-
 Have you consider that the string might be empty? This is a good question to ask during an interview.
 
 For the purpose of this problem, we define empty string as valid palindrome.
@@ -17,6 +16,13 @@ For the purpose of this problem, we define empty string as valid palindrome.
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        
+    }
+};
 
 int main() {
     Solution s;

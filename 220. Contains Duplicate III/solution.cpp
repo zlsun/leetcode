@@ -8,6 +8,13 @@ Given an array of integers, find out whether there are two distinct indices i an
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

@@ -10,6 +10,13 @@ If it is overflow, return MAX_INT.
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

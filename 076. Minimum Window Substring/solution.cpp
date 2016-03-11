@@ -9,7 +9,6 @@ T = "ABC"
 Minimum window is "BANC".
 
 Note:
-
 If there is no such window in S that covers all characters in T, return the empty string "".
 
 If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
@@ -19,6 +18,13 @@ If there are multiple such windows, you are guaranteed that there will always be
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    string minWindow(string s, string t) {
+        
+    }
+};
 
 int main() {
     Solution s;

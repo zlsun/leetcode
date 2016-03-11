@@ -8,6 +8,13 @@ Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle con
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    int maximalRectangle(vector<vector<char>>& matrix) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

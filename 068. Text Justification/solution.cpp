@@ -1,6 +1,7 @@
 /** 068. Text Justification
 
 Given an array of words and a length L, format the text such that each line has exactly L characters and is fully (left and right) justified.
+ 
 
 You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces ' ' when necessary so that each line has exactly L characters.
 
@@ -15,22 +16,18 @@ L: 16.
 Return the formatted lines as:
 
 [
-
    "This    is    an",
-
    "example  of text",
-
    "justification.  "
-
 ]
 
 Note: Each word is guaranteed not to exceed L in length.
 
 click to show corner cases.
+
 Corner Cases:
 
 A line other than the last line might contain only one word. What should you do in this case?
-
 In this case, that line should be left-justified.
 
 **/
@@ -38,6 +35,13 @@ In this case, that line should be left-justified.
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    vector<string> fullJustify(vector<string>& words, int maxWidth) {
+        
+    }
+};
 
 int main() {
     Solution s;

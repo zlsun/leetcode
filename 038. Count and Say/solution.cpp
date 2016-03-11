@@ -1,5 +1,4 @@
 /** 038. Count and Say
-
 The count-and-say sequence is the sequence of integers beginning as follows:
 1, 11, 21, 1211, 111221, ...
 
@@ -16,6 +15,13 @@ Note: The sequence of integers will be represented as a string.
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    string countAndSay(int n) {
+        
+    }
+};
 
 int main() {
     Solution s;

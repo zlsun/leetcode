@@ -16,12 +16,18 @@ Output:
 [[1,2,6], [1,3,5], [2,3,4]]
 
 Credits:Special thanks to @mithmatt for adding this problem and creating all test cases.
-
 **/
 
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    vector<vector<int>> combinationSum3(int k, int n) {
+        
+    }
+};
 
 int main() {
     Solution s;

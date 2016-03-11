@@ -12,12 +12,18 @@ The order of the result is not important. So in the above example, [5, 3] is als
 Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?
 
 Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
-
 **/
 
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        
+    }
+};
 
 int main() {
     Solution s;

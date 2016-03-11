@@ -8,17 +8,23 @@ For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5
 
 Note: If there are several possible values for h, the maximum one is taken as the h-index.
 
-An easy approach is to sort the array first.
-What are the possible values of h-index?
-A faster approach is to use extra space.
+  An easy approach is to sort the array first.
+  What are the possible values of h-index?
+  A faster approach is to use extra space.
 
 Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
-
 **/
 
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    int hIndex(vector<int>& citations) {
+        
+    }
+};
 
 int main() {
     Solution s;

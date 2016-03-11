@@ -10,6 +10,21 @@ Return a deep copy of the list.
 #include "../utils.h"
 using namespace std;
 
+/**
+ * Definition for singly-linked list with a random pointer.
+ * struct RandomListNode {
+ *     int label;
+ *     RandomListNode *next, *random;
+ *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    RandomListNode *copyRandomList(RandomListNode *head) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

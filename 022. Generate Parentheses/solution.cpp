@@ -12,6 +12,13 @@ For example, given n = 3, a solution set is:
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

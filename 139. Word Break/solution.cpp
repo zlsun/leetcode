@@ -14,6 +14,13 @@ Return true because "leetcode" can be segmented as "leet code".
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    bool wordBreak(string s, unordered_set<string>& wordDict) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

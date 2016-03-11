@@ -8,23 +8,15 @@ Elements in a subset must be in non-descending order.
 The solution set must not contain duplicate subsets.
 
 For example,
-
 If nums = [1,2,2], a solution is:
 
 [
-
   [2],
-
   [1],
-
   [1,2,2],
-
   [2,2],
-
   [1,2],
-
   []
-
 ]
 
 **/
@@ -32,6 +24,13 @@ If nums = [1,2,2], a solution is:
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        
+    }
+};
 
 int main() {
     Solution s;

@@ -11,6 +11,21 @@ set(key, value) - Set or insert the value if the key is not already present. Whe
 #include "../utils.h"
 using namespace std;
 
+class LRUCache{
+public:
+    LRUCache(int capacity) {
+        
+    }
+    
+    int get(int key) {
+        
+    }
+    
+    void set(int key, int value) {
+        
+    }
+};
+
 int main() {
     Solution s;
     return 0;

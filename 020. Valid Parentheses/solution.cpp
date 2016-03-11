@@ -1,6 +1,6 @@
 /** 020. Valid Parentheses
-
 Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
 The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
 
 **/
@@ -8,6 +8,13 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 #include <iostream>
 #include "../utils.h"
 using namespace std;
+
+class Solution {
+public:
+    bool isValid(string s) {
+        
+    }
+};
 
 int main() {
     Solution s;
