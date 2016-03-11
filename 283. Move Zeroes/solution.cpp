@@ -17,7 +17,25 @@ Credits:Special thanks to @jianchao.li.fighter for adding this problem and creat
 #include "../utils.h"
 using namespace std;
 
+class Solution {
+public:
+    void moveZeroes(vector<int>& v) {
+        int l = v.size();
+        int i = 0;
+        for (int j = 0; j < l; ++j) {
+            if (v[j] != 0) {
+                if (i != j) swap(v[i], v[j]);
+                ++i;
+            }
+        }
+    }
+};
+
 int main() {
     Solution s;
+    using vi = vector<int>;
+    vi v {0, 1, 0, 3, 12};
+    s.moveZeroes(v);
+    ASSERT v == vi{1, 3, 12, 0, 0};
     return 0;
 }
