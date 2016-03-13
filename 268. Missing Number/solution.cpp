@@ -15,14 +15,19 @@ Credits:Special thanks to @jianchao.li.fighter for adding this problem and creat
 #include "../utils.h"
 using namespace std;
 
+#include <algorithm>
 class Solution {
 public:
-    int missingNumber(vector<int>& nums) {
-        
+    int missingNumber(const vector<int>& nums) {
+        int l = nums.size();
+        int sum = std::accumulate(nums.begin(), nums.end(), 0);
+        return (1 + l) * l / 2 - sum;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.missingNumber({0, 1, 3}) == 2;
+    ASSERT s.missingNumber({0, 1, 2}) == 3;
     return 0;
 }
