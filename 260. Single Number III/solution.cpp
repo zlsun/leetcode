@@ -21,11 +21,26 @@ using namespace std;
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
-        
+        int xo = 0;
+        int l = nums.size();
+        for (int i = 0; i < l; ++i)
+            xo ^= nums[i];
+        int r = xo & ~(xo - 1);
+        int a = 0, b = 0;
+        for (int i = 0; i < l; ++i)
+            if (nums[i] & r) a ^= nums[i];
+            else b ^= nums[i];
+        vector<int> v;
+        v.push_back(a);
+        v.push_back(b);
+        return v;
     }
 };
 
 int main() {
     Solution s;
+    using vi = vector<int>;
+    vi v {1, 2, 1, 3, 2, 5};
+    ASSERT s.singleNumber(v) == vi{3, 5};
     return 0;
 }
