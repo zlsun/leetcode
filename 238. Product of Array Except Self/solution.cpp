@@ -17,11 +17,28 @@ using namespace std;
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
-        
+        int l = nums.size();
+        vector<int> v(l);
+        int x = 1;
+        for (int i = l - 1; i >= 0; --i) {
+            int c = nums[i];
+            v[i] = x;
+            x *= c;
+        }
+        x = 1;
+        for (int i = 0; i < l; ++i) {
+            int c = nums[i];
+            v[i] *= x;
+            x *= c;
+        }
+        return v;
     }
 };
 
 int main() {
     Solution s;
+    using vi = vector<int>;
+    vi v {1, 2, 3, 4};
+    ASSERT s.productExceptSelf(v) == vi{24,12,8,6};
     return 0;
 }
