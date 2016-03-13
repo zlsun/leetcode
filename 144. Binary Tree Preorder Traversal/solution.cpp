@@ -19,19 +19,29 @@ Note: Recursive solution is trivial, could you do it iteratively?
 #include "../utils.h"
 using namespace std;
 
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+#include <stack>
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
-        
+        std::stack<TreeNode*> s;
+        vector<int> v;
+        s.push(root);
+        while(!s.empty()) {
+            TreeNode* x = s.top();
+            s.pop();
+            if (!x) continue;
+            v.push_back(x->val);
+            s.push(x->right);
+            s.push(x->left);
+        }
+        return v;
     }
 };
 
