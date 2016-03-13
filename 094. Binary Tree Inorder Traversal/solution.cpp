@@ -30,7 +30,7 @@ Here's an example:
     \
      5
 
-The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}". 
+The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 
 **/
 
@@ -38,19 +38,38 @@ The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 #include "../utils.h"
 using namespace std;
 
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+#include <stack>
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-        
+        vector<int> v;
+        TreeNode* cur = root;
+        while (cur) {
+            if (cur->left) {
+                TreeNode* pre = cur->left;
+                while (pre->right && pre->right != cur)
+                    pre = pre->right;
+                if (pre->right) { // pre->right == cur
+                    pre->right = NULL;
+                    v.push_back(cur->val);
+                    cur = cur->right;
+                } else { // pre->right == NULL
+                    pre->right = cur;
+                    cur = cur->left;
+                }
+            } else {
+                v.push_back(cur->val);
+                cur = cur->right;
+            }
+        }
+        return v;
     }
 };
 
