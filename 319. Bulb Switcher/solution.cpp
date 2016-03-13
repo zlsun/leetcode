@@ -6,11 +6,11 @@ Find how many bulbs are on after n rounds.
 
 Example:
 
-Given n = 3. 
+Given n = 3.
 At first, the three bulbs are [off, off, off].
 After first round, the three bulbs are [on, on, on].
 After second round, the three bulbs are [on, off, on].
-After third round, the three bulbs are [on, off, off]. 
+After third round, the three bulbs are [on, off, off].
 So you should return 1, because there is only one bulb is on.
 
 **/
@@ -19,14 +19,16 @@ So you should return 1, because there is only one bulb is on.
 #include "../utils.h"
 using namespace std;
 
+#include <cmath>
 class Solution {
 public:
     int bulbSwitch(int n) {
-        
+        return std::sqrt(n);
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.bulbSwitch(3) == 1;
     return 0;
 }
