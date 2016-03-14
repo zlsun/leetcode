@@ -12,12 +12,23 @@ using namespace std;
 
 class Solution {
 public:
-    int majorityElement(vector<int>& nums) {
-        
+    int majorityElement(const vector<int>& nums) {
+        int l = nums.size();
+        int cnt = 0, major;
+        for (int i = 0; i < l; ++i) {
+            if (cnt == 0) {
+                major = nums[i];
+                ++cnt;
+            } else {
+                cnt += major == nums[i] ? 1 : -1;
+            }
+        }
+        return major;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.majorityElement({1, 1, 3}) == 1;
     return 0;
 }
