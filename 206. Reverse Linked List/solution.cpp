@@ -12,22 +12,28 @@ A linked list can be reversed either iteratively or recursively. Could you imple
 #include "../utils.h"
 using namespace std;
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+#include <stack>
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        
+        if (head == NULL) return NULL;
+        std::stack<int> s;
+        while (head) {
+            s.push(head->val);
+            head = head->next;
+        }
+        ListNode* res = new ListNode(s.top()); s.pop();
+        ListNode* pre = res;
+        while (!s.empty()) {
+            pre->next = new ListNode(s.top()); s.pop();
+            pre = pre->next;
+        }
+        return res;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.reverseList(ListNode::from({1, 2}))->equal(ListNode::from({2, 1}));
     return 0;
 }
