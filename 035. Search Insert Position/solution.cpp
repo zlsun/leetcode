@@ -4,10 +4,10 @@ Given a sorted array and a target value, return the index if the target is found
 You may assume no duplicates in the array.
 
 Here are few examples.
-[1,3,5,6], 5 &#8594; 2
-[1,3,5,6], 2 &#8594; 1
-[1,3,5,6], 7 &#8594; 4
-[1,3,5,6], 0 &#8594; 0
+[1,3,5,6], 5 -> 2
+[1,3,5,6], 2 -> 1
+[1,3,5,6], 7 -> 4
+[1,3,5,6], 0 -> 0
 
 **/
 
@@ -17,12 +17,18 @@ using namespace std;
 
 class Solution {
 public:
-    int searchInsert(vector<int>& nums, int target) {
-        
+    int searchInsert(const vector<int>& nums, int target) {
+        int l = nums.size(), i = 0;
+        while (target > nums[i] && i != l) ++i;
+        return i;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.searchInsert({1, 3, 5, 6}, 5) == 2;
+    ASSERT s.searchInsert({1, 3, 5, 6}, 2) == 1;
+    ASSERT s.searchInsert({1, 3, 5, 6}, 7) == 4;
+    ASSERT s.searchInsert({1, 3, 5, 6}, 0) == 0;
     return 0;
 }
