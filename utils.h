@@ -32,6 +32,30 @@ struct ListNode {
     }
 };
 
+struct TreeNode {
+    struct Builder {
+        TreeNode* p;
+        Builder(TreeNode* p = nullptr): p(p) {}
+        Builder(int d, Builder l = Builder(), Builder r = Builder())
+            : p(new TreeNode(d, l.p, r.p)) {}
+        operator TreeNode* () const {
+            return p;
+        }
+    };
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x, TreeNode* l = NULL, TreeNode* r = NULL) : val(x), left(l), right(r) {}
+    bool equal(TreeNode* t) {
+        if (t == NULL) return false;
+        bool sameLeft = (left == NULL && t->left == NULL)
+            || (left && t->left && left->equal(t->left));
+        bool sameRight = (right == NULL && t->right == NULL)
+            || (right && t->right && right->equal(t->right));
+        return val == t->val && sameLeft && sameRight;
+    }
+};
+
 struct Assert {
     int lineno;
     Assert(int l): lineno(l) {}

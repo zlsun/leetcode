@@ -9,22 +9,6 @@ The maximum depth is the number of nodes along the longest path from the root no
 #include "../utils.h"
 using namespace std;
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x, TreeNode* l = NULL, TreeNode* r = NULL) : val(x), left(l), right(r) {}
-    struct Builder {
-        TreeNode* p;
-        Builder(TreeNode* p = nullptr): p(p) {}
-        Builder(int d, Builder l = Builder(), Builder r = Builder())
-            : p(new TreeNode(d, l.p, r.p)) {}
-        operator TreeNode* () const {
-            return p;
-        }
-    };
-};
-
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
