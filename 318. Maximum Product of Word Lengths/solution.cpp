@@ -20,7 +20,7 @@
 
     Given ["a", "aa", "aaa", "aaaa"]
     Return 0
-    No such pair of words.    
+    No such pair of words.
 
 Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
 **/
@@ -29,14 +29,35 @@ Credits:Special thanks to @dietpepsi for adding this problem and creating all te
 #include "../utils.h"
 using namespace std;
 
+#include <algorithm>
 class Solution {
 public:
-    int maxProduct(vector<string>& words) {
-        
+    int maxProduct(const vector<string>& words) {
+        int n = words.size();
+        vector<int> hash(n);
+        for (int i = 0; i < n; ++i) {
+            int l = words[i].length();
+            for (int j = 0; j < l; ++j) {
+                hash[i] |= 1 << (words[i][j] - 'a');
+            }
+        }
+        size_t m = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if ((hash[i] & hash[j]) == 0) {
+                    m = max(m, words[i].length() * words[j].length());
+                }
+            }
+        }
+        return m;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.maxProduct({}) == 0;
+    ASSERT s.maxProduct({"abcw", "baz", "foo", "bar", "xtfn", "abcdef"}) == 16;
+    ASSERT s.maxProduct({"a", "ab", "abc", "d", "cd", "bcd", "abcd"}) == 4;
+    ASSERT s.maxProduct({"a", "aa", "aaa", "aaaa"}) == 0;
     return 0;
 }
