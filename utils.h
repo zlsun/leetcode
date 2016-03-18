@@ -7,12 +7,22 @@ using pii = std::pair<int, int>;
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-    static ListNode* from(const vi& t) {
-        ListNode* root = NULL;
-        ListNode* pre = NULL;
+    ListNode(int x) : val(x), next(nullptr) {}
+    struct Builder {
+        ListNode* p;
+        Builder(ListNode* p = nullptr): p(p) {}
+        Builder(const std::initializer_list<int>& ilist)
+            : p(from(ilist)) {}
+        operator ListNode* () const {
+            return p;
+        }
+    };
+    template <class T>
+    static ListNode* from(const T& t) {
+        ListNode* root = nullptr;
+        ListNode* pre = nullptr;
         for (auto& x : t) {
-            if (root == NULL) {
+            if (!root) {
                 root = new ListNode(x);
                 pre = root;
             } else {
@@ -21,6 +31,9 @@ struct ListNode {
             }
         }
         return root;
+    }
+    static ListNode* from(const std::initializer_list<int>& ilist) {
+        return from(vi{ilist});
     }
     vi to() const {
         vi v;
@@ -37,6 +50,10 @@ struct ListNode {
 };
 
 struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x, TreeNode* l = nullptr, TreeNode* r = nullptr) : val(x), left(l), right(r) {}
     struct Builder {
         TreeNode* p;
         Builder(TreeNode* p = nullptr): p(p) {}
@@ -46,15 +63,11 @@ struct TreeNode {
             return p;
         }
     };
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x, TreeNode* l = NULL, TreeNode* r = NULL) : val(x), left(l), right(r) {}
     bool equal(TreeNode* t) {
-        if (t == NULL) return false;
-        bool sameLeft = (left == NULL && t->left == NULL)
+        if (!t) return false;
+        bool sameLeft = (!left && !t->left)
             || (left && t->left && left->equal(t->left));
-        bool sameRight = (right == NULL && t->right == NULL)
+        bool sameRight = (!right && !t->right)
             || (right && t->right && right->equal(t->right));
         return val == t->val && sameLeft && sameRight;
     }
