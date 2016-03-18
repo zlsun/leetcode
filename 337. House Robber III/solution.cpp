@@ -9,7 +9,7 @@ Example 1:
      3
     / \
    2   3
-    \   \ 
+    \   \
      3   1
 
 Maximum amount of money the thief can rob = 3 + 3 + 1 = 7.
@@ -19,7 +19,7 @@ Example 2:
      3
     / \
    4   5
-  / \   \ 
+  / \   \
  1   3   1
 
 Maximum amount of money the thief can rob = 4 + 5 = 9.
@@ -43,11 +43,40 @@ using namespace std;
 class Solution {
 public:
     int rob(TreeNode* root) {
-        
+        return dfs(root).first;
+    }
+    typedef pair<int, int> pii;
+    pii dfs(TreeNode* root) {
+        pii p = make_pair(0, 0);
+        if (root) {
+            pii l = dfs(root->left);
+            pii r = dfs(root->right);
+            p.second = l.first + r.first;
+            p.first = max(p.second, l.second + r.second + root->val);
+        }
+        return p;
     }
 };
 
 int main() {
     Solution s;
+    TreeNode* tree = TreeNode::Builder {
+        3,
+        {2, nullptr, 3},
+        {3, nullptr, 1}
+    };
+    ASSERT s.rob(tree) == 7;
+    tree = TreeNode::Builder {
+        3,
+        {4, 1, 3},
+        {5, nullptr, 1}
+    };
+    ASSERT s.rob(tree) == 9;
+    tree = TreeNode::Builder {
+        4,
+        {1, 2, 3},
+        nullptr
+    };
+    ASSERT s.rob(tree) == 9;
     return 0;
 }
