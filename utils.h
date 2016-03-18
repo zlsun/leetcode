@@ -70,4 +70,8 @@ struct Assert {
     }
 };
 
+using vi = std::vector<int>;
+using vvi = std::vector<vi>;
+using pii = std::pair<int, int>;
+
 #define ASSERT Assert(__LINE__),
