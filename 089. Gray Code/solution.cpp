@@ -25,11 +25,23 @@ using namespace std;
 class Solution {
 public:
     vector<int> grayCode(int n) {
-        
+        if (n == 0) return vector<int>{0};
+        if (n == 1) return vector<int>{0, 1};
+        vector<int> pre = grayCode(n - 1);
+        vector<int> res;
+        for (auto it = pre.begin(); it != pre.end(); ++it) {
+            res.push_back(*it);
+        }
+        int p = 1 << (n - 1);
+        for (auto it = pre.rbegin(); it != pre.rend(); ++it) {
+            res.push_back(p + *it);
+        }
+        return res;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.grayCode(2) == vector<int>{0b00, 0b01, 0b11, 0b10};
     return 0;
 }
