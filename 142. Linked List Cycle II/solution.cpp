@@ -24,11 +24,27 @@ using namespace std;
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
-        
+        if (!head) return NULL;
+        ListNode* p = head, *q = head;
+        do {
+            if (!p->next) return NULL;
+            if (!(q->next && q->next->next)) return NULL;
+            p = p->next;
+            q = q->next->next;
+        } while (p != q);
+        p = head;
+        while (p != q) {
+            p = p->next;
+            q = q->next;
+        }
+        return p;
     }
 };
 
 int main() {
     Solution s;
+    ListNode* list = ListNode::from({1, 2, 3});
+    list->next->next->next = list->next;
+    ASSERT s.detectCycle(list) == list->next;
     return 0;
 }
