@@ -22,7 +22,6 @@ public:
     }
     TreeNode* build(const vector<int>& v, int b, int e) {
         if (b > e) return NULL;
-        if (b == e) return new TreeNode(v[b]);
         int m = (b + e) / 2;
         auto node = new TreeNode(v[m]);
         node->left = build(v, b, m - 1);
