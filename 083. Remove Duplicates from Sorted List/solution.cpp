@@ -23,11 +23,21 @@ using namespace std;
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        
+        auto node = head;
+        while (node) {
+            auto next = node->next;
+            while (next && node->val == next->val) {
+                next = next->next;
+            }
+            node->next = next;
+            node = next;
+        }
+        return head;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.deleteDuplicates(ListNode::Builder{1, 2, 2})->equal(ListNode::Builder{1, 2});
     return 0;
 }
