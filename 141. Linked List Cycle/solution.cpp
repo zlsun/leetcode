@@ -22,11 +22,24 @@ using namespace std;
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        
+        if (!head) return false;
+        ListNode* p = head, *q = head;
+        do {
+            if (!p->next) return false;
+            if (!(q->next && q->next->next)) return false;
+            p = p->next;
+            q = q->next->next;
+        } while (p != q);
+        return true;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT !s.hasCycle(ListNode::from({}));
+    ASSERT !s.hasCycle(ListNode::from({1, 2, 3}));
+    ListNode* list = ListNode::from({1, 2});
+    list->next->next = list;
+    ASSERT s.hasCycle(list);
     return 0;
 }
