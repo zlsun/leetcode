@@ -24,11 +24,18 @@ using namespace std;
 class Solution {
 public:
     vector<int> countBits(int num) {
-        
+        vector<int> v(num + 1);
+        v[0] = 0;
+        for (int i = 1; i <= num; ++i) {
+            if (i & 1) v[i] = v[i / 2] + 1;
+            else v[i] = v[i / 2];
+        }
+        return v;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.countBits(5) == vector<int> {0, 1, 1, 2, 1, 2};
     return 0;
 }
