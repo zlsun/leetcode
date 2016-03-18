@@ -12,12 +12,24 @@ using namespace std;
 
 class Solution {
 public:
-    int rob(vector<int>& nums) {
-        
+    int rob(const vector<int>& nums) {
+        int l = nums.size();
+        if (l == 0) return 0;
+        vector<int> dp(l);
+        dp[0] = nums[0];
+        if (l >= 2) dp[1] = max(nums[0], nums[1]);
+        for (int i = 2; i < l; ++i) {
+            dp[i] = max(dp[i - 1], nums[i] + dp[i - 2]);
+        }
+        return dp[l - 1];
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.rob({}) == 0;
+    ASSERT s.rob({1}) == 1;
+    ASSERT s.rob({1, 2}) == 2;
+    ASSERT s.rob({1, 2, 3}) == 4;
     return 0;
 }
