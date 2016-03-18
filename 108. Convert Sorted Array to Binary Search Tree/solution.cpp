@@ -17,12 +17,22 @@ using namespace std;
  */
 class Solution {
 public:
-    TreeNode* sortedArrayToBST(vector<int>& nums) {
-        
+    TreeNode* sortedArrayToBST(const vector<int>& nums) {
+        return build(nums, 0, nums.size() - 1);
+    }
+    TreeNode* build(const vector<int>& v, int b, int e) {
+        if (b > e) return NULL;
+        if (b == e) return new TreeNode(v[b]);
+        int m = (b + e) / 2;
+        auto node = new TreeNode(v[m]);
+        node->left = build(v, b, m - 1);
+        node->right = build(v, m + 1, e);
+        return node;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.sortedArrayToBST({1, 2, 3})->equal(TreeNode::Builder{2, 1, 3});
     return 0;
 }
