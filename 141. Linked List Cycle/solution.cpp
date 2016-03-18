@@ -25,7 +25,6 @@ public:
         if (!head) return false;
         ListNode* p = head, *q = head;
         do {
-            if (!p->next) return false;
             if (!(q->next && q->next->next)) return false;
             p = p->next;
             q = q->next->next;
