@@ -1,10 +1,14 @@
 #include <zlog.h>
 
+using vi = std::vector<int>;
+using vvi = std::vector<vi>;
+using pii = std::pair<int, int>;
+
 struct ListNode {
     int val;
     ListNode *next;
     ListNode(int x) : val(x), next(NULL) {}
-    static ListNode* from(const std::vector<int>& t) {
+    static ListNode* from(const vi& t) {
         ListNode* root = NULL;
         ListNode* pre = NULL;
         for (auto& x : t) {
@@ -18,8 +22,8 @@ struct ListNode {
         }
         return root;
     }
-    std::vector<int> to() const {
-        std::vector<int> v;
+    vi to() const {
+        vi v;
         const ListNode* cur = this;
         while (cur) {
             v.push_back(cur->val);
@@ -69,9 +73,5 @@ struct Assert {
         return *this;
     }
 };
-
-using vi = std::vector<int>;
-using vvi = std::vector<vi>;
-using pii = std::pair<int, int>;
 
 #define ASSERT Assert(__LINE__),
