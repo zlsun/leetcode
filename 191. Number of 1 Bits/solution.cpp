@@ -13,11 +13,17 @@ using namespace std;
 class Solution {
 public:
     int hammingWeight(uint32_t n) {
-        
+        int w = 0;
+        while (n) {
+            if (n & 1) ++w;
+            n >>= 1;
+        }
+        return w;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.hammingWeight(11) == 3;
     return 0;
 }
