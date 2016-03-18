@@ -13,12 +13,22 @@ using namespace std;
 
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
-        
+    int singleNumber(const vector<int>& A) {
+        int l = A.size();
+        int ones = 0, twos = 0, xthrees = 0;
+        for (int i = 0; i < l; ++i) {
+            twos |= (ones & A[i]);
+            ones ^= A[i];
+            xthrees = ~(ones & twos);
+            ones &= xthrees;
+            twos &= xthrees;
+        }
+        return ones;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.singleNumber({1, 1, 1, 2, 3, 3, 3}) == 2;
     return 0;
 }
