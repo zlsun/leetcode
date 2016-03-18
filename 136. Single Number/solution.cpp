@@ -12,12 +12,19 @@ using namespace std;
 
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
-        
+    int singleNumber(const vector<int>& nums) {
+        int l = nums.size();
+        int single = 0;
+        for (int i = 0; i < l; ++i) {
+            single ^= nums[i];
+        }
+        return single;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.singleNumber({1, 1, 2}) == 2;
+    ASSERT s.singleNumber({1, 1, 3, 3, 2}) == 2;
     return 0;
 }
