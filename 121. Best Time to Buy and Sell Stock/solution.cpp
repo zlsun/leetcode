@@ -10,12 +10,22 @@ using namespace std;
 
 class Solution {
 public:
-    int maxProfit(vector<int>& prices) {
-        
+    int maxProfit(const vector<int>& prices) {
+        if (prices.size() <= 1) return 0;
+        int mi = prices[0];
+        int res = 0;
+        for (auto p : prices) {
+            mi = min(mi, p);
+            res = max(res, p - mi);
+        }
+        return res;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.maxProfit({1, 1}) == 0;
+    ASSERT s.maxProfit({1, 2}) == 1;
+    ASSERT s.maxProfit({2, 1}) == 0;
     return 0;
 }
