@@ -12,11 +12,21 @@ using namespace std;
 class Solution {
 public:
     int climbStairs(int n) {
-        
+        if (n <= 1) return 1;
+        int a = 1, b = 1;
+        while (--n) {
+            int tmp = a;
+            a = b;
+            b += tmp;
+        }
+        return b;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.climbStairs(1) == 1;
+    ASSERT s.climbStairs(2) == 2;
+    ASSERT s.climbStairs(3) == 3;
     return 0;
 }
