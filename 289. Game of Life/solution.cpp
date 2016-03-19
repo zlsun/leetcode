@@ -11,7 +11,7 @@ Any dead cell with exactly three live neighbors becomes a live cell, as if by re
 
 Write a function to compute the next state (after one update) of the board given its current state.
 
-Follow up: 
+Follow up:
 
 Could you solve it in-place? Remember that the board needs to be updated at the same time: You cannot update some cells first and then use their updated values to update other cells.
 In this question, we represent the board using a 2D array. In principle, the board is infinite, which would cause problems when the active area encroaches the border of the array. How would you address these problems?
@@ -26,7 +26,22 @@ using namespace std;
 class Solution {
 public:
     void gameOfLife(vector<vector<int>>& board) {
-        
+        int n = board.size(), m = n ? board[0].size() : 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                int count = -board[i][j];
+                for (int s = max(i - 1, 0); s <= min(i + 1, n - 1); ++s) {
+                    for (int t = max(j - 1, 0); t <= min(j + 1, m - 1); ++t) {
+                        count += board[s][t] & 1;
+                    }
+                }
+                if (count == 3 || (board[i][j] && count == 2))
+                    board[i][j] |= 2;
+            }
+        }
+        for (int i = 0; i < n; ++i)
+            for (int j = 0; j < m; ++j)
+                board[i][j] >>= 1;
     }
 };
 
