@@ -20,14 +20,30 @@ convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 #include "../utils.h"
 using namespace std;
 
+#include <algorithm>
+#include <iterator>
 class Solution {
 public:
     string convert(string s, int numRows) {
-        
+        if (numRows == 1 || s.size() <= (size_t)numRows) return s;
+        vector<vector<char>> z(numRows);
+        int r = 0, d = 1;
+        for (char c : s) {
+            z[r].push_back(c);
+            if (r == 0) d = 1;
+            else if (r == numRows - 1) d = -1;
+            r += d;
+        }
+        string res;
+        for (auto& v : z) {
+            copy(v.begin(), v.end(), back_inserter(res));
+        }
+        return res;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR";
     return 0;
 }
