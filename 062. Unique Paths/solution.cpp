@@ -16,12 +16,21 @@ using namespace std;
 
 class Solution {
 public:
+    int nCr(int n, int r) {
+        long res = 1;
+        for (int i = 1; i <= r; ++i) {
+            res *= n - r + i;
+            res /= i;
+        }
+        return res;
+    }
     int uniquePaths(int m, int n) {
-        
+        return nCr(m + n - 2, min(m, n) - 1);
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.uniquePaths(2, 2) == 2;
     return 0;
 }
