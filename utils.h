@@ -44,7 +44,7 @@ struct ListNode {
         }
         return v;
     }
-    bool equal(ListNode* b) {
+    bool equal(ListNode* b) const {
         return to() == b->to();
     }
 };
@@ -63,7 +63,35 @@ struct TreeNode {
             return p;
         }
     };
-    bool equal(TreeNode* t) {
+    bool equal(TreeNode* t) const {
+        if (!t) return false;
+        bool sameLeft = (!left && !t->left)
+            || (left && t->left && left->equal(t->left));
+        bool sameRight = (!right && !t->right)
+            || (right && t->right && right->equal(t->right));
+        return val == t->val && sameLeft && sameRight;
+    }
+};
+
+struct TreeLinkNode {
+    int val;
+    TreeLinkNode *left, *right, *next;
+    TreeLinkNode(
+        int x,
+        TreeLinkNode* l = nullptr,
+        TreeLinkNode* r = nullptr,
+        TreeLinkNode* n = nullptr
+    ): val(x), left(l), right(r), next(n) {}
+    struct Builder {
+        TreeLinkNode* p;
+        Builder(TreeLinkNode* p = nullptr): p(p) {}
+        Builder(int d, Builder l = Builder(), Builder r = Builder())
+            : p(new TreeLinkNode(d, l.p, r.p)) {}
+        operator TreeLinkNode* () const {
+            return p;
+        }
+    };
+    bool equal(TreeLinkNode* t) const {
         if (!t) return false;
         bool sameLeft = (!left && !t->left)
             || (left && t->left && left->equal(t->left));

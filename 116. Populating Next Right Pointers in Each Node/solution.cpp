@@ -48,14 +48,41 @@ using namespace std;
  *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
  * };
  */
+#include <queue>
 class Solution {
 public:
     void connect(TreeLinkNode *root) {
-        
+        if (root == NULL) return;
+        int count = 0;
+        queue<TreeLinkNode*> q;
+        q.push(root);
+        TreeLinkNode* pre = root;
+        while (!q.empty()) {
+            auto x = q.front(); q.pop();
+            ++count;
+            if (count & (count - 1)) {
+                pre->next = x;
+            }
+            if (x->left) {
+                q.push(x->left);
+                q.push(x->right);
+            }
+            pre = x;
+        }
     }
 };
 
 int main() {
     Solution s;
+    TreeLinkNode* tree = TreeLinkNode::Builder {
+        1,
+        {2, 4, 5},
+        {3, 6, 7}
+    };
+    s.connect(tree);
+    zlog tree->next;
+    ASSERT tree->next == NULL;
+    ASSERT tree->left->next == tree->right;
+    ASSERT tree->left->right->next == tree->right->left;
     return 0;
 }
