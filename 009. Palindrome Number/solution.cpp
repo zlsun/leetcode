@@ -22,11 +22,19 @@ using namespace std;
 class Solution {
 public:
     bool isPalindrome(int x) {
-        
+        if (x < 0 || (x != 0 && x % 10 == 0)) return false;
+        int r = 0;
+        while (x > r) {
+            r = r * 10 + x % 10;
+            x /= 10;
+        }
+        return x == r || x == r / 10;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.isPalindrome(10) == false;
+    ASSERT s.isPalindrome(101) == true;
     return 0;
 }
