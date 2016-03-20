@@ -39,11 +39,42 @@ using namespace std;
 class Solution {
 public:
     void connect(TreeLinkNode *root) {
-        
+        while (root) {
+            TreeLinkNode dummy(-1);
+            for (auto cur = root, pre = &dummy; cur; cur = cur->next) {
+                if (cur->left) {
+                    pre->next = cur->left;
+                    pre = pre->next;
+                }
+                if (cur->right) {
+                    pre->next = cur->right;
+                    pre = pre->next;
+                }
+            }
+            root = dummy.next;
+        }
     }
 };
 
 int main() {
     Solution s;
+    TreeLinkNode* tree = TreeLinkNode::Builder {
+        1,
+        {2, 4, 5},
+        {3, nullptr, 7}
+    };
+    s.connect(tree);
+    ASSERT tree->next == NULL;
+    ASSERT tree->left->next == tree->right;
+    ASSERT tree->left->right->next == tree->right->right;
+    tree = TreeLinkNode::Builder {
+        3,
+        9,
+        {20, 15, 7}
+    };
+    s.connect(tree);
+    ASSERT tree->next == NULL;
+    ASSERT tree->left->next == tree->right;
+    ASSERT tree->right->left->next == tree->right->right;
     return 0;
 }
