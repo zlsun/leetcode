@@ -3,6 +3,7 @@
 #include <queue>
 #include <map>
 #include <algorithm>
+#include <cstring>
 
 #include <zlog.h>
 
