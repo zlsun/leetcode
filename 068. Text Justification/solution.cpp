@@ -1,7 +1,7 @@
 /** 068. Text Justification
 
 Given an array of words and a length L, format the text such that each line has exactly L characters and is fully (left and right) justified.
- 
+
 
 You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces ' ' when necessary so that each line has exactly L characters.
 
@@ -38,12 +38,61 @@ using namespace std;
 
 class Solution {
 public:
-    vector<string> fullJustify(vector<string>& words, int maxWidth) {
-        
+    vector<string> fullJustify(const vector<string>& words, int maxWidth) {
+        vector<vector<string>> lines(1);
+        vector<int> spaces;
+        int len = 0;
+        for (const auto& w : words) {
+            int l = w.length();
+            if (len + l + (int)lines.back().size() > maxWidth) {
+                lines.emplace_back();
+                spaces.push_back(maxWidth - len);
+                len = 0;
+            }
+            lines.back().push_back(w);
+            len += l;
+        }
+        spaces.push_back(maxWidth - len);
+        int l = lines.size();
+        vector<string> res(l);
+        for (int i = 0; i < l; ++i) {
+            auto& li = lines[i];
+            auto& sp = spaces[i];
+            int wl = li.size();
+            res[i] = li[0];
+            if (wl == 1 || i == l - 1) {
+                for (int j = 1; j < wl; ++j) {
+                    res[i] += ' ' + li[j];
+                }
+                res[i] += string(sp - wl + 1, ' ');
+            } else {
+                int s = sp / (wl - 1);
+                int e = sp % (wl - 1);
+                for (int j = 1; j < wl; ++j) {
+                    res[i] += string(s + (j <= e), ' ') + li[j];
+                }
+            }
+        }
+        return res;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.fullJustify({"This", "is", "an", "example", "of", "text", "justification."}, 16) == vector<string> {
+       "This    is    an",
+       "example  of text",
+       "justification.  "
+    };
+    ASSERT s.fullJustify({"What", "must", "be", "shall", "be."}, 12) == vector<string> {
+        "What must be",
+        "shall be.   "
+    };
+    ASSERT s.fullJustify({"Imagination", "is", "more", "important", "than", "knowledge."}, 14) == vector<string> {
+        "Imagination is",
+        "more important",
+        "than          ",
+        "knowledge.    "
+    };
     return 0;
 }
