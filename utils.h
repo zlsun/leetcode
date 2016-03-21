@@ -5,12 +5,15 @@
 #include <stack>
 #include <algorithm>
 #include <cstring>
+#include <cassert>
 
 #include <zlog.h>
 
-using vi = std::vector<int>;
-using vvi = std::vector<vi>;
-using pii = std::pair<int, int>;
+using namespace std;
+
+using vi = vector<int>;
+using vvi = vector<vi>;
+using pii = pair<int, int>;
 
 struct ListNode {
     int val;
@@ -19,7 +22,7 @@ struct ListNode {
     struct Builder {
         ListNode* p;
         Builder(ListNode* p = nullptr): p(p) {}
-        Builder(const std::initializer_list<int>& ilist)
+        Builder(const initializer_list<int>& ilist)
             : p(from(ilist)) {}
         operator ListNode* () const {
             return p;
@@ -40,7 +43,7 @@ struct ListNode {
         }
         return root;
     }
-    static ListNode* from(const std::initializer_list<int>& ilist) {
+    static ListNode* from(const initializer_list<int>& ilist) {
         return from(vi{ilist});
     }
     vi to() const {
@@ -54,6 +57,9 @@ struct ListNode {
     }
     bool equal(ListNode* b) const {
         return to() == b->to();
+    }
+    void print() const {
+        zlog to();
     }
 };
 
@@ -78,6 +84,11 @@ struct TreeNode {
         bool sameRight = (!right && !t->right)
             || (right && t->right && right->equal(t->right));
         return val == t->val && sameLeft && sameRight;
+    }
+    void print(int level = 0) const {
+        zloga(true, false) string(level * 2, ' '), val;
+        if (left) left->print(level + 1);
+        if (right) right->print(level + 1);
     }
 };
 
