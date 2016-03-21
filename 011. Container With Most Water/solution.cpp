@@ -11,12 +11,21 @@ using namespace std;
 
 class Solution {
 public:
-    int maxArea(vector<int>& height) {
-        
+    int maxArea(const vector<int>& height) {
+        int l = 0, r = height.size() - 1;
+        int m = 0;
+        while (l < r) {
+            int area = (r - l) * (height[l] < height[r] ? height[l++] : height[r--]);
+            m = max(m, area);
+        }
+        return m;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.maxArea({1, 2, 4, 3}) == 4;
+    ASSERT s.maxArea({1, 2, 3, 4}) == 4;
+    ASSERT s.maxArea({1, 2}) == 1;
     return 0;
 }
