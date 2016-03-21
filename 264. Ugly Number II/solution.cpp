@@ -21,11 +21,21 @@ using namespace std;
 class Solution {
 public:
     int nthUglyNumber(int n) {
-        
+        static int i = 0, j = 0, k = 0;
+        static vector<int> uglys(1, 1);
+        while ((int)uglys.size() < n) {
+            int m = min(min(uglys[i] * 2, uglys[j] * 3), uglys[k] * 5);
+            if (m == uglys[i] * 2) ++i;
+            if (m == uglys[j] * 3) ++j;
+            if (m == uglys[k] * 5) ++k;
+            uglys.push_back(m);
+        }
+        return uglys[n - 1];
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.nthUglyNumber(10) == 12;
     return 0;
 }
