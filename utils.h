@@ -3,6 +3,7 @@
 #include <queue>
 #include <map>
 #include <stack>
+#include <string>
 #include <algorithm>
 #include <cstring>
 #include <cassert>

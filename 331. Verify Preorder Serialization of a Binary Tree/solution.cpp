@@ -36,12 +36,28 @@ using namespace std;
 
 class Solution {
 public:
+    vector<string> split(string s, char sp = ' ') {
+        stringstream ss(s);
+        vector<string> res;
+        while (getline(ss, s, sp)) {
+            res.push_back(s);
+        }
+        return res;
+    }
     bool isValidSerialization(string preorder) {
-        
+        int diff = 1;
+        for (auto& i : split(preorder, ',')) {
+            if (--diff < 0) return false;
+            if (i != "#") diff += 2;
+        }
+        return diff == 0;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.isValidSerialization("9,3,4,#,#,1,#,#,2,#,6,#,#") == true;
+    ASSERT s.isValidSerialization("1,#") == false;
+    ASSERT s.isValidSerialization("9,#,#,1") == false;
     return 0;
 }
