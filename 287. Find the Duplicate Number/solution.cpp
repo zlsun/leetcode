@@ -18,12 +18,22 @@ using namespace std;
 
 class Solution {
 public:
-    int findDuplicate(vector<int>& nums) {
-        
+    int findDuplicate(const vector<int>& nums) {
+        int slow = 0, fast = 0, find = 0;
+        do {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while (slow != fast);
+        do {
+            find = nums[find];
+            slow = nums[slow];
+        } while (slow != find);
+        return find;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.findDuplicate({1, 2, 2, 3, 4}) == 2;
     return 0;
 }
