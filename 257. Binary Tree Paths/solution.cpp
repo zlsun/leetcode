@@ -32,11 +32,29 @@ using namespace std;
 class Solution {
 public:
     vector<string> binaryTreePaths(TreeNode* root) {
-        
+        vector<string> res;
+        if (root == nullptr) return res;
+        dfs(res, root, to_string(root->val));
+        return res;
+    }
+    void dfs(vector<string>& res, TreeNode* root, string path) {
+        if (!root->left && !root->right) {
+            res.push_back(path);
+            return;
+        }
+        if (root->left) {
+            dfs(res, root->left, path + "->" + to_string(root->left->val));
+        }
+        if (root->right) {
+            dfs(res, root->right, path + "->" + to_string(root->right->val));
+        }
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.binaryTreePaths(TreeNode::Builder {
+        1, {2, nullptr, 5}, 3
+    }) == vector<string>{"1->2->5", "1->3"};
     return 0;
 }
