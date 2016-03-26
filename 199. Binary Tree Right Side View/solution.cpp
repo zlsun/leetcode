@@ -31,11 +31,29 @@ using namespace std;
 class Solution {
 public:
     vector<int> rightSideView(TreeNode* root) {
-        
+        vector<int> v;
+        if (root == NULL) return v;
+        queue<TreeNode*> q;
+        TreeNode* cur;
+        q.push(root);
+        while (!q.empty()) {
+            int n = q.size();
+            while (n--) {
+                cur = q.front(); q.pop();
+                if (cur->left) q.push(cur->left);
+                if (cur->right) q.push(cur->right);
+            }
+            v.push_back(cur->val);
+        }
+        return v;
     }
 };
 
 int main() {
     Solution s;
+    TreeNode* tree = TreeNode::Builder {
+        40, {20, 10, 30}, {60, {50, 41, nullptr}, 70}
+    };
+    ASSERT s.rightSideView(tree) == vi{40, 60, 70, 41};
     return 0;
 }
