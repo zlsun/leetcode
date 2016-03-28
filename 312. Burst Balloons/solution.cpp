@@ -10,9 +10,9 @@
 
     Find the maximum coins you can collect by bursting the balloons wisely.
 
-    Note: 
+    Note:
     (1) You may imagine nums[-1] = nums[n] = 1. They are not real therefore you can not burst them.
-    (2) 0 &le; n &le; 500, 0 &le; nums[i] &le; 100
+    (2) 0 <= n <= 500, 0 <= nums[i] <= 100
 
     Example:
 
@@ -33,11 +33,25 @@ using namespace std;
 class Solution {
 public:
     int maxCoins(vector<int>& nums) {
-        
+        nums.insert(nums.begin(), 1);
+        nums.push_back(1);
+        int n = nums.size();
+        vector<vector<int>> dp(n, vector<int>(n, 0));
+        for (int l = 1; l < n - 1; ++l) {
+            for (int b = 0; b < n - l - 1; ++b) {
+                int e = b + l + 1;
+                for (int k = b + 1; k < e; ++k) {
+                    dp[b][e] = max(dp[b][e], dp[b][k] + nums[b] * nums[k] * nums[e] + dp[k][e]);
+                }
+            }
+        }
+        return dp[0][n - 1];
     }
 };
 
 int main() {
     Solution s;
+    vector<int> v {3, 1, 5, 8};
+    ASSERT s.maxCoins(v) == 167;
     return 0;
 }
