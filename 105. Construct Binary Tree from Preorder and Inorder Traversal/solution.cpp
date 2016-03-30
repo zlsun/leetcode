@@ -21,12 +21,30 @@ using namespace std;
  */
 class Solution {
 public:
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        
+    typedef vector<int> vi;
+    typedef vector<int>::const_iterator vit;
+    TreeNode* buildTree(const vector<int>& preorder, const vector<int>& inorder) {
+        return build(preorder.begin(), preorder.end(), inorder.begin(), inorder.end());
+    }
+    TreeNode* build(vit pb, vit pe, vit ib, vit ie) {
+        if (pb == pe) return nullptr;
+        int v = *pb;
+        auto it = find(ib, ie, v);
+        auto n = it - ib;
+        auto mid = pb + n + 1;
+        auto left = build(pb + 1, mid, ib, it);
+        auto right = build(mid, pe, it + 1, ie);
+        auto tree = new TreeNode(v);
+        tree->left = left;
+        tree->right = right;
+        return tree;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.buildTree({1, 2, 4, 5, 3, 6, 7}, {4, 2, 5, 1, 6, 3, 7})->equal(TreeNode::Builder {
+        1, {2, 4, 5}, {3, 6, 7}
+    });
     return 0;
 }
