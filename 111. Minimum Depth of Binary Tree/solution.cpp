@@ -20,11 +20,24 @@ using namespace std;
 class Solution {
 public:
     int minDepth(TreeNode* root) {
-        
+        if (root == nullptr) return 0;
+        if (!root->left && !root->right) return 1;
+        else if (root->left && !root->right) return minDepth(root->left) + 1;
+        else if (!root->left && root->right) return minDepth(root->right) + 1;
+        return min(minDepth(root->left), minDepth(root->right)) + 1;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.minDepth(TreeNode::Builder {
+        1, nullptr, 2
+    }) == 2;
+    ASSERT s.minDepth(TreeNode::Builder {
+        1, {1, nullptr, 2}, 3
+    }) == 2;
+    ASSERT s.minDepth(TreeNode::Builder {
+        1, 1, {1, 2, 3}
+    }) == 2;
     return 0;
 }
