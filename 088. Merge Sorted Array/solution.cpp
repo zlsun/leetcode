@@ -12,11 +12,16 @@ using namespace std;
 class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        
+        for (int i = m - 1, j = n - 1, k = m + n -1; j >= 0;) {
+            nums1[k--] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
+        }
     }
 };
 
 int main() {
     Solution s;
+    vi a {1, 3, 5, 0, 0, 0}, b {2, 4, 6};
+    s.merge(a, a.size() - b.size(), b, b.size());
+    ASSERT a == vi {1, 2, 3, 4, 5, 6};
     return 0;
 }
