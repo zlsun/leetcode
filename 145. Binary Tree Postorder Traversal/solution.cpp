@@ -31,11 +31,32 @@ using namespace std;
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
-        
+        vector<int> res;
+        stack<TreeNode*> s;
+        TreeNode* last = nullptr;
+        while (!s.empty() || root) {
+            if (root) {
+                s.push(root);
+                root = root->left;
+            } else {
+                TreeNode* top = s.top();
+                if (top->right == nullptr || top->right == last) {
+                    res.push_back(top->val);
+                    last = top;
+                    s.pop();
+                } else {
+                    root = top->right;
+                }
+            }
+        }
+        return res;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.postorderTraversal(TreeNode::Builder {
+        1, nullptr, {2, 3}
+    }) == vi {3, 2, 1};
     return 0;
 }
