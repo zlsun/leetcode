@@ -12,8 +12,13 @@
 
 using namespace std;
 
-using vi = vector<int>;
-using vvi = vector<vi>;
+template <class T>
+using v = vector<T>;
+template <class T>
+using vv = vector<vector<T>>;
+
+using vi = v<int>;
+using vvi = vv<int>;
 using pii = pair<int, int>;
 
 struct ListNode {
