@@ -22,12 +22,24 @@ using namespace std;
 
 class Solution {
 public:
-    int maxProfit(vector<int>& prices) {
-        
+    int maxProfit(const vector<int>& prices) {
+        int n = prices.size();
+        if (n <= 1) return 0;
+        int curNo, preNo, curHas;
+        curNo = preNo = 0;
+        curHas = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            int tmp = curNo;
+            curNo = max(curNo, curHas + prices[i]);
+            curHas = max(curHas, preNo - prices[i]);
+            preNo = tmp;
+        }
+        return curNo;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.maxProfit({1, 2, 3, 0, 2}) == 3;
     return 0;
 }
