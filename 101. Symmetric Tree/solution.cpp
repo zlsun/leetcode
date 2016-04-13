@@ -36,7 +36,7 @@ Here's an example:
     \
      5
 
-The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}". 
+The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 
 **/
 
@@ -56,11 +56,23 @@ using namespace std;
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-        
+        return !root || isMirror(root->left, root->right);
+    }
+    bool isMirror(TreeNode* a, TreeNode* b) {
+        if (!a && !b) return true;
+        if (!a || !b) return false;
+        return a->val == b->val && isMirror(a->left, b->right) && isMirror(a->right, b->left);
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.isSymmetric(TreeNode::Builder {});
+    ASSERT s.isSymmetric(TreeNode::Builder {
+        1, 2, 2
+    });
+    ASSERT s.isSymmetric(TreeNode::Builder {
+        1, {2, 3, 4}, {2, 4, 3}
+    });
     return 0;
 }
