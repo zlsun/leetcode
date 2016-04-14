@@ -24,10 +24,12 @@ using pii = pair<int, int>;
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode* n = nullptr) : val(x), next(n) {}
     struct Builder {
         ListNode* p;
         Builder(ListNode* p = nullptr): p(p) {}
+        Builder(int val, Builder b = Builder())
+            : p(new ListNode(val, b.p)) {}
         Builder(const initializer_list<int>& ilist)
             : p(from(ilist)) {}
         operator ListNode* () const {
