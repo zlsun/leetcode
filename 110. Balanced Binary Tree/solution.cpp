@@ -21,11 +21,31 @@ using namespace std;
 class Solution {
 public:
     bool isBalanced(TreeNode* root) {
-        
+        bool balanced;
+        judge(root, balanced);
+        return balanced;
+    }
+    int judge(TreeNode* root, bool& balanced) {
+        if (!root) {
+            balanced = true;
+            return 0;
+        }
+        bool lb = false, rb = false;
+        int lh = judge(root->left, lb);
+        int rh = judge(root->right, rb);
+        balanced = lb && rb && abs(lh - rh) <= 1;
+        return max(lh, rh) + 1;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.isBalanced(TreeNode::Builder {});
+    ASSERT s.isBalanced(TreeNode::Builder {
+        1, {2, 3, 4}, 2
+    });
+    ASSERT !s.isBalanced(TreeNode::Builder {
+        1, {2, 3, {4, 5, 6}}, 2
+    });
     return 0;
 }
