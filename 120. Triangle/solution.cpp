@@ -23,12 +23,32 @@ using namespace std;
 
 class Solution {
 public:
-    int minimumTotal(vector<vector<int>>& triangle) {
-        
+    int minimumTotal(const vector<vector<int>>& triangle) {
+        int n = triangle.size();
+        vector<int> dp(n, 0);
+        for (int i = 0; i < n; ++i) {
+            if (i) dp[i] = dp[i - 1] + triangle[i][i];
+            for (int j = i - 1; j > 0; --j) {
+                dp[j] = min(dp[j], dp[j - 1]) + triangle[i][j];
+            }
+            dp[0] += triangle[i][0];
+        }
+        return *min_element(dp.begin(), dp.end());
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.minimumTotal({
+        {2},
+        {3, 4},
+        {6, 5, 7},
+        {4, 1, 8, 3}
+    }) == 11;
+    ASSERT s.minimumTotal({
+        {-1},
+        {2, 3},
+        {1, -1, -3}
+    }) == -1;
     return 0;
 }
