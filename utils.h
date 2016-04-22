@@ -13,18 +13,25 @@
 using namespace std;
 
 template <class T>
-using v = vector<T>;
+using V = vector<T>;
 template <class T>
-using vv = vector<vector<T>>;
+using v = V<T>;
+template <class T>
+using VV = V<V<T>>;
+template <class T>
+using vv = VV<T>;
 
-using vi = v<int>;
-using vvi = vv<int>;
-using pii = pair<int, int>;
+using Vi = V<int>;
+using vi = Vi;
+using VVi = VV<int>;
+using vvi = VVi;
+using Pii = pair<int, int>;
+using pii = Pii;
 
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x, ListNode* n = nullptr) : val(x), next(n) {}
+    ListNode(int x, ListNode* n = nullptr): val(x), next(n) {}
     struct Builder {
         ListNode* p;
         Builder(ListNode* p = nullptr): p(p) {}
@@ -75,7 +82,11 @@ struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
-    TreeNode(int x, TreeNode* l = nullptr, TreeNode* r = nullptr) : val(x), left(l), right(r) {}
+    TreeNode(
+        int x,
+        TreeNode* l = nullptr,
+        TreeNode* r = nullptr
+    ): val(x), left(l), right(r) {}
     struct Builder {
         TreeNode* p;
         Builder(TreeNode* p = nullptr): p(p) {}
@@ -131,8 +142,7 @@ struct TreeLinkNode {
 struct Assert {
     int lineno;
     Assert(int l): lineno(l) {}
-    Assert& operator , (bool ok)
-    {
+    Assert& operator , (bool ok) {
         if (ok) {
             zlog lineno, "Assert passed";
         } else {
