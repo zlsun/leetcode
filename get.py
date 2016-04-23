@@ -6,9 +6,9 @@ from os.path import exists
 from multiprocessing import Pool
 from requests import get
 from bs4 import BeautifulSoup as BS
-from pyquery import PyQuery as PQ
+import argparse
 
-import urllib3
+import requests.packages.urllib3 as urllib3
 urllib3.disable_warnings()
 
 PROBLEMSET_URL = 'https://leetcode.com/problemset/algorithms/'
@@ -52,11 +52,12 @@ if __name__ == "__main__":
 ''',
 }
 
-TYPE = 'cpp'
+PARALLEL = False
+LANGUAGE = 'cpp'
 
 def save(name):
     print('Processing {}'.format(name))
-    soup = BS(get(PROBLEM_URL.format(name), verify=False).content, 'lxml')
+    soup = BS(get(PROBLEM_URL.format(name), verify=False).content, 'html.parser')
     title = soup.find(class_='question-title')
     if not title:
         print('Cannot open {}'.format(name))
@@ -72,12 +73,12 @@ def save(name):
     solus = eval(init)[0]
     solus = {i['value']:i['defaultCode'] for i in solus}
 
-    text = TEMPLATES[TYPE] % (info, solus[TYPE])
+    text = TEMPLATES[LANGUAGE] % (info, solus[LANGUAGE])
     text = text.replace('\u000d', '')
     text = re.sub(r'[\n]{3,}', r'\n\n', text)
 
     folder = '{}'.format(title)
-    fname = '{}/solution.{}'.format(folder, TYPE)
+    fname = '{}/solution.{}'.format(folder, LANGUAGE)
     if not exists(folder):
         makedirs(folder)
     if exists(fname):
@@ -90,30 +91,33 @@ def save(name):
     print(fname, "saved")
 
 def save_all(lst):
-    # list(map(save, lst))
-    p = Pool()
-    p.map(save, lst)
+    if PARALLEL:
+        p = Pool()
+        p.map(save, lst)
+    else:
+        list(map(save, lst))
 
 
 def get_problemset():
-    d = PQ(get(PROBLEMSET_URL).content)
-    table = d('#problemList > tbody > tr')
+    soup = BS(get(PROBLEMSET_URL, verify=False).content, 'html.parser')
+    table = soup.select('#problemList > tbody > tr')
     ps = []
-    for tr in table.items():
-        p = tr('td > a').attr['href']
+    for tr in table:
+        p = tr.select('td > a')[0].attrs['href']
         p = MATCH_NAME.sub(r'\1', p)
         ps.append(p)
-    ps.reverse()
     return ps
 
 
 if __name__ == '__main__':
     import sys
-    if len(sys.argv) > 2:
-        print("Too many arguments!")
-        sys.exit()
-    if len(sys.argv) == 2:
-        TYPE = sys.argv[1]
+    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser.add_argument('-p', dest='parallel', action='store_true', help='Download parallelly')
+    parser.add_argument('language', nargs='?', default='cpp', help='Language')
+    args = parser.parse_args()
+    PARALLEL = args.parallel
+    LANGUAGE = args.language
+
     ps = get_problemset()
     save_all(ps)
 
