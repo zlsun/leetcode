@@ -55,23 +55,27 @@ if __name__ == "__main__":
 PARALLEL = False
 LANGUAGE = 'cpp'
 
+
 def save(name):
     print('Processing {}'.format(name))
-    soup = BS(get(PROBLEM_URL.format(name), verify=False).content, 'html.parser')
+    soup = BS(
+        get(PROBLEM_URL.format(name), verify=False).content, 'html.parser')
     title = soup.find(class_='question-title')
     if not title:
         print('Cannot open {}'.format(name))
         return
     title = title.h3.string
-    title = '0' * (3-title.find('.')) + title
-    content = soup.find('meta',{'name':'description'}).attrs['content']
+    title = '0' * (3 - title.find('.')) + title
+    content = soup.find('meta', {'name': 'description'}).attrs['content']
     info = title + '\n' + content
 
-    ng_init = soup.find('div', {'ng-controller': 'AceCtrl as aceCtrl'}).attrs['ng-init']
+    ng_init = soup.find(
+        'div', {'ng-controller': 'AceCtrl as aceCtrl'}).attrs['ng-init']
     true, false = True, False
-    init = ng_init.replace('aceCtrl.init', '').replace('\n', '').replace('\r', '')[:-1]
+    init = ng_init.replace('aceCtrl.init', '').replace(
+        '\n', '').replace('\r', '')[:-1]
     solus = eval(init)[0]
-    solus = {i['value']:i['defaultCode'] for i in solus}
+    solus = {i['value']: i['defaultCode'] for i in solus}
 
     text = TEMPLATES[LANGUAGE] % (info, solus[LANGUAGE])
     text = text.replace('\u000d', '')
@@ -89,6 +93,7 @@ def save(name):
     f.write(text)
     f.close()
     print(fname, "saved")
+
 
 def save_all(lst):
     if PARALLEL:
@@ -112,12 +117,13 @@ def get_problemset():
 if __name__ == '__main__':
     import sys
     parser = argparse.ArgumentParser(description='Process some integers.')
-    parser.add_argument('-p', dest='parallel', action='store_true', help='Download parallelly')
-    parser.add_argument('language', nargs='?', default='cpp', help='Language')
+    parser.add_argument('-p', dest='parallel', action='store_true',
+                        help='Download parallelly')
+    parser.add_argument('language', nargs='?', default='cpp',
+                        help='Language')
     args = parser.parse_args()
     PARALLEL = args.parallel
     LANGUAGE = args.language
 
     ps = get_problemset()
     save_all(ps)
-
