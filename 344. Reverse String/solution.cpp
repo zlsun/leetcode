@@ -13,11 +13,14 @@ using namespace std;
 class Solution {
 public:
     string reverseString(string s) {
-        
+        return {s.rbegin(), s.rend()};
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.reverseString("") == "";
+    ASSERT s.reverseString("1") == "1";
+    ASSERT s.reverseString("123") == "321";
     return 0;
 }
