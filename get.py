@@ -3,10 +3,11 @@
 import re
 from os import makedirs
 from os.path import exists
+from argparse import ArgumentParser
 from multiprocessing import Pool
+
 from requests import get
 from bs4 import BeautifulSoup as BS
-import argparse
 
 import requests.packages.urllib3 as urllib3
 urllib3.disable_warnings()
@@ -57,24 +58,25 @@ LANGUAGE = 'cpp'
 
 
 def save(name):
-    print('Processing {}'.format(name))
-    soup = BS(
-        get(PROBLEM_URL.format(name), verify=False).content, 'html.parser')
+    print('[Processing] {}'.format(name))
+
+    content = get(PROBLEM_URL.format(name), verify=False).content
+    soup = BS(content, 'html.parser')
     title = soup.find(class_='question-title')
     if not title:
         print('Cannot open {}'.format(name))
         return
+
     title = title.h3.string
     title = '0' * (3 - title.find('.')) + title
     content = soup.find('meta', {'name': 'description'}).attrs['content']
-    info = title + '\n' + content
+    info = '{}\n{}'.format(title, content)
 
-    ng_init = soup.find(
-        'div', {'ng-controller': 'AceCtrl as aceCtrl'}).attrs['ng-init']
-    true, false = True, False
-    init = ng_init.replace('aceCtrl.init', '').replace(
-        '\n', '').replace('\r', '')[:-1]
-    solus = eval(init)[0]
+    init = soup.find('div', {'ng-controller': 'AceCtrl as aceCtrl'}) \
+               .attrs['ng-init']
+    init = init.replace('aceCtrl.init', '')
+    init = init.replace('\n', '').replace('\r', '')[:-1]
+    solus = eval(init, {'true': True, 'false': False})[0]
     solus = {i['value']: i['defaultCode'] for i in solus}
 
     text = TEMPLATES[LANGUAGE] % (info, solus[LANGUAGE])
@@ -86,37 +88,33 @@ def save(name):
     if not exists(folder):
         makedirs(folder)
     if exists(fname):
-        print(fname, 'exist')
+        print('{} exist'.format(fname))
         return
-
-    f = open(fname, "w")
-    f.write(text)
-    f.close()
-    print(fname, "saved")
+    with open(fname, 'w') as f:
+        f.write(text)
+    print('{} saved'.format(fname))
 
 
-def save_all(lst):
+def save_all(problemset):
     if PARALLEL:
-        p = Pool()
-        p.map(save, lst)
+        pool = Pool()
+        pool.map(save, problemset)
     else:
-        list(map(save, lst))
+        list(map(save, problemset))
 
 
 def get_problemset():
-    soup = BS(get(PROBLEMSET_URL, verify=False).content, 'html.parser')
+    content = get(PROBLEMSET_URL, verify=False).content
+    soup = BS(content, 'html.parser')
     table = soup.select('#problemList > tbody > tr')
-    ps = []
     for tr in table:
         p = tr.select('td > a')[0].attrs['href']
         p = MATCH_NAME.sub(r'\1', p)
-        ps.append(p)
-    return ps
+        yield p
 
 
 if __name__ == '__main__':
-    import sys
-    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser = ArgumentParser(description='LeetCode downloader')
     parser.add_argument('-p', dest='parallel', action='store_true',
                         help='Download parallelly')
     parser.add_argument('language', nargs='?', default='cpp',
@@ -125,5 +123,5 @@ if __name__ == '__main__':
     PARALLEL = args.parallel
     LANGUAGE = args.language
 
-    ps = get_problemset()
-    save_all(ps)
+    problemset = get_problemset()
+    save_all(problemset)
