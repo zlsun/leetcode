@@ -23,11 +23,34 @@ using namespace std;
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        
+        auto p = nums.begin(), q = nums.begin();
+        for (auto& i : nums) {
+            if (i == 0) {
+                if (p != q && &i != &*q) tie(*p, *q, i) = make_tuple(i, *p, *q);
+                else if (&i != &*p) swap(*p, i);
+                else if (&i != &*q) swap(*q, i);
+                ++p;
+                ++q;
+            } else if (i == 1) {
+                swap(*q, i);
+                ++q;
+            }
+        }
     }
 };
 
 int main() {
     Solution s;
+    Vi colors {0, 1, 2, 0, 1, 2};
+    ASSERT (s.sortColors(colors), colors) == Vi {0, 0, 1, 1, 2, 2};
+    ASSERT (s.sortColors(colors), colors) == Vi {0, 0, 1, 1, 2, 2};
+    colors = {2, 1, 0};
+    ASSERT (s.sortColors(colors), colors) == Vi {0, 1, 2};
+    colors = {0, 1};
+    ASSERT (s.sortColors(colors), colors) == Vi {0, 1};
+    colors = {1, 0};
+    ASSERT (s.sortColors(colors), colors) == Vi {0, 1};
+    colors = {2, 0};
+    ASSERT (s.sortColors(colors), colors) == Vi {0, 2};
     return 0;
 }
