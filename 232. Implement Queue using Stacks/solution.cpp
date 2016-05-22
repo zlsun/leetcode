@@ -23,29 +23,51 @@ You may assume that all operations are valid (for example, no pop or peek operat
 using namespace std;
 
 class Queue {
+private:
+    stack<int> head, tail;
 public:
     // Push element x to the back of queue.
     void push(int x) {
-        
+        tail.push(x);
     }
 
     // Removes the element from in front of queue.
     void pop(void) {
-        
+        if (head.empty()) {
+            while (!tail.empty()) {
+                head.push(tail.top());
+                tail.pop();
+            }
+        }
+        head.pop();
     }
 
     // Get the front element.
     int peek(void) {
-        
+        if (head.empty()) {
+            while (!tail.empty()) {
+                head.push(tail.top());
+                tail.pop();
+            }
+        }
+        return head.top();
     }
 
     // Return whether the queue is empty.
     bool empty(void) {
-        
+        return head.empty() && tail.empty();
     }
 };
 
 int main() {
-    Solution s;
+    Queue q;
+    q.push(1);
+    ASSERT q.peek() == 1;
+    q.push(2);
+    ASSERT q.peek() == 1;
+    q.pop();
+    ASSERT q.peek() == 2;
+    q.pop();
+    ASSERT q.empty();
     return 0;
 }
