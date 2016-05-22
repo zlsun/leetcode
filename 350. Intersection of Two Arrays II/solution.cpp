@@ -24,12 +24,23 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-        
+    vector<int> intersect(vector<int>& s1, vector<int>& s2) {
+        vector<int> v;
+        sort(s1.begin(), s1.end());
+        sort(s2.begin(), s2.end());
+        set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(), back_inserter(v));
+        return v;
     }
 };
 
 int main() {
     Solution s;
+    vi v1, v2;
+    v1 = {1, 2, 2, 1};
+    v2 = {2, 2};
+    ASSERT s.intersect(v1, v2) == vi{2, 2};
+    v1 = {2, 1};
+    v2 = {1, 1};
+    ASSERT s.intersect(v1, v2) == vi{1};
     return 0;
 }
