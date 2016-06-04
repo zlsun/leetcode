@@ -27,29 +27,47 @@ Credits:Special thanks to @jianchao.li.fighter for adding this problem and all t
 using namespace std;
 
 class Stack {
+    queue<int> q;
 public:
     // Push element x onto stack.
     void push(int x) {
-        
+        q.push(x);
     }
 
     // Removes the element on top of the stack.
     void pop() {
-        
+        int n = q.size();
+        while (n-- > 1) {
+            q.push(q.front());
+            q.pop();
+        }
+        q.pop();
     }
 
     // Get the top element.
     int top() {
-        
+        return q.back();
     }
 
     // Return whether the stack is empty.
     bool empty() {
-        
+        return q.empty();
     }
 };
 
 int main() {
-    Solution s;
+    Stack s;
+    ASSERT s.empty();
+    s.push(1);
+    ASSERT s.top() == 1;
+    ASSERT !s.empty();
+    s.push(2);
+    ASSERT s.top() == 2;
+    ASSERT !s.empty();
+    s.pop();
+    ASSERT s.top() == 1;
+    ASSERT !s.empty();
+    s.pop();
+    ASSERT s.empty();
     return 0;
 }
