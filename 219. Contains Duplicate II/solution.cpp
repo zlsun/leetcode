@@ -10,12 +10,20 @@ using namespace std;
 
 class Solution {
 public:
-    bool containsNearbyDuplicate(vector<int>& nums, int k) {
-        
+    bool containsNearbyDuplicate(const vector<int>& nums, int k) {
+        unordered_set<int> recent;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (recent.find(nums[i]) != recent.end()) return true;
+            recent.emplace(nums[i]);
+            if (recent.size() > k) recent.erase(recent.find(nums[i-k]));
+        }
+        return false;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT !s.containsNearbyDuplicate(vi{1, 2, 1}, 1);
+    ASSERT s.containsNearbyDuplicate(vi{1, 2, 1}, 2);
     return 0;
 }
