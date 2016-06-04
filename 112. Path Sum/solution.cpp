@@ -32,11 +32,23 @@ using namespace std;
 class Solution {
 public:
     bool hasPathSum(TreeNode* root, int sum) {
-        
+        if (root == nullptr) return false;
+        if (root->left == nullptr && root->right == nullptr) return root->val == sum;
+        int rest = sum - root->val;
+        return hasPathSum(root->left, rest) || hasPathSum(root->right, rest);
     }
 };
 
 int main() {
     Solution s;
+    ASSERT !s.hasPathSum(TreeNode::Builder{}, 0);
+    ASSERT s.hasPathSum(TreeNode::Builder{1}, 1);
+    ASSERT !s.hasPathSum(TreeNode::Builder{1, 2}, 1);
+    ASSERT s.hasPathSum(TreeNode::Builder{1, 2}, 3);
+    ASSERT s.hasPathSum(TreeNode::Builder{
+        5,
+        {4, {11, 7, 2}},
+        {8, 13, {4, nullptr, 1}}
+    }, 22);
     return 0;
 }
