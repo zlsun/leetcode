@@ -20,11 +20,23 @@ using namespace std;
 class Solution {
 public:
     bool isPalindrome(string s) {
-        
+        int i = 0, j = s.length() - 1;
+        while (i < j) {
+            while (!isalnum(s[i])) ++i;
+            while (!isalnum(s[j])) --j;
+            if (i >= j) break;
+            if (tolower(s[i]) != tolower(s[j])) return false;
+            ++i;
+            --j;
+        }
+        return true;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.isPalindrome("A man, a plan, a canal: Panama");
+    ASSERT !s.isPalindrome("race a car");
+    ASSERT s.isPalindrome(".,");
     return 0;
 }
