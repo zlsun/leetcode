@@ -28,11 +28,24 @@ using namespace std;
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        
+        ListNode dummy(0);
+        dummy.next = head;
+        ListNode* fast = &dummy;
+        ListNode* slow = &dummy;
+        while (n--) fast = fast->next;
+        while (fast->next) {
+            fast = fast->next;
+            slow = slow->next;
+        }
+        ListNode* removed = slow->next;
+        slow->next = removed->next;
+        delete removed;
+        return dummy.next;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.removeNthFromEnd(ListNode::from({1, 2, 3, 4, 5}), 2)->equal(ListNode::from({1, 2, 3, 5}));
     return 0;
 }
