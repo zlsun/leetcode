@@ -21,13 +21,14 @@ There are many calls to sumRange function.
 using namespace std;
 
 class NumArray {
+    vector<int> sum;
 public:
-    NumArray(vector<int> &nums) {
-        
+    NumArray(const vector<int> &nums) {
+        sum.push_back(0);
+        std::partial_sum(nums.begin(), nums.end(), back_inserter(sum));
     }
-
     int sumRange(int i, int j) {
-        
+        return sum[j+1] - sum[i];
     }
 };
 
@@ -37,6 +38,9 @@ public:
 // numArray.sumRange(1, 2);
 
 int main() {
-    Solution s;
+    NumArray numArray({-2, 0, 3, -5, 2, -1});
+    ASSERT numArray.sumRange(0, 2) == 1;
+    ASSERT numArray.sumRange(2, 5) == -1;
+    ASSERT numArray.sumRange(0, 5) == -3;
     return 0;
 }

@@ -8,6 +8,7 @@
 #include <stack>
 #include <string>
 #include <algorithm>
+#include <numeric>
 #include <cstring>
 #include <cassert>
 
