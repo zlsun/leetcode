@@ -19,11 +19,35 @@ using namespace std;
 class Solution {
 public:
     string countAndSay(int n) {
-        
+        string res = "1";
+        while (--n) {
+            char pre = res[0];
+            int count = 0;
+            string next;
+            for (char c : res) {
+                if (c == pre) {
+                    ++count;
+                } else {
+                    next += to_string(count) + pre;
+                    count = 1;
+                }
+                pre = c;
+            }
+            next += to_string(count) + pre;
+            res = next;
+        }
+        return res;
     }
 };
 
 int main() {
     Solution s;
+    ASSERT s.countAndSay(1) == "1";
+    ASSERT s.countAndSay(2) == "11";
+    ASSERT s.countAndSay(3) == "21";
+    ASSERT s.countAndSay(4) == "1211";
+    ASSERT s.countAndSay(5) == "111221";
+    ASSERT s.countAndSay(6) == "312211";
+    ASSERT s.countAndSay(7) == "13112221";
     return 0;
 }
