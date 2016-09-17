@@ -1,4 +1,4 @@
-#!/bin/python
+#!/bin/python -W ignore
 
 import re
 from os import makedirs
@@ -9,10 +9,7 @@ from multiprocessing import Pool
 from requests import get
 from bs4 import BeautifulSoup as BS
 
-import requests.packages.urllib3 as urllib3
-urllib3.disable_warnings()
-
-PROBLEMSET_URL = 'https://leetcode.com/problemset/algorithms/'
+PROBLEMS_API = 'https://leetcode.com/api/problems/{}/'
 PROBLEM_URL = 'https://leetcode.com/problems/{}/'
 
 MATCH_NAME = re.compile(r'/[^/]*/([^/]*)/$')
@@ -55,15 +52,22 @@ if __name__ == "__main__":
 PARALLEL = False
 LANGUAGE = 'cpp'
 
+def colorize(str, a, b):
+    return '\033[{};{}m{}\033[0m'.format(a, b, str)
+
+strong = lambda str: colorize(str, 1, 31)
+error = lambda str: colorize(str, 0, 31)
+warning = lambda str: colorize(str, 0, 33)
+success = lambda str: colorize(str, 0, 32)
 
 def save(name):
-    print('[Processing] {}'.format(name))
+    print(strong('[Processing] ') + name)
 
     content = get(PROBLEM_URL.format(name), verify=False).content
     soup = BS(content, 'html.parser')
     title = soup.find(class_='question-title')
     if not title:
-        print('Cannot open {}'.format(name))
+        print(error('Denied: ') + name)
         return
 
     title = title.h3.string
@@ -87,11 +91,11 @@ def save(name):
     if not exists(folder):
         makedirs(folder)
     if exists(fname):
-        print('{} exist'.format(fname))
+        print(warning('Existed: ') + fname)
         return
     with open(fname, 'w') as f:
         f.write(text)
-    print('{} saved'.format(fname))
+    print(success('Saved: ') + fname)
 
 
 def save_all(problemset):
@@ -102,14 +106,12 @@ def save_all(problemset):
         list(map(save, problemset))
 
 
-def get_problemset():
-    content = get(PROBLEMSET_URL, verify=False).content
-    soup = BS(content, 'html.parser')
-    table = soup.select('#problemList > tbody > tr')
-    for tr in table:
-        p = tr.select('td > a')[0].attrs['href']
-        p = MATCH_NAME.sub(r'\1', p)
-        yield p
+def get_problems(type):
+    response = get(PROBLEMS_API.format(type), verify=False).json()
+    problems = response['stat_status_pairs']
+    for pair in problems:
+        slug = pair['stat']['question__title_slug']
+        yield slug
 
 
 if __name__ == '__main__':
@@ -122,5 +124,9 @@ if __name__ == '__main__':
     PARALLEL = args.parallel
     LANGUAGE = args.language
 
-    problemset = get_problemset()
-    save_all(problemset)
+    try:
+        problems = get_problems('algorithms')
+        save_all(problems)
+    except KeyboardInterrupt:
+        pass
+
