@@ -11,7 +11,7 @@ using namespace std;
 bool dp[1000][1000];
 class Solution {
 public:
-    string longestPalindrome(const string& s) {
+    string longestPalindrome0(const string& s) {
         int l = s.length();
         if (l <= 1) return s;
         for (int i = 0; i < l; ++i) {
@@ -36,6 +36,27 @@ public:
             }
         }
         return s.substr(p, n);
+    }
+    string longestPalindrome(const string& s) {
+        string ss(s.size() * 2 + 2, '$');
+        for (int i = 0; i < s.size(); ++i) {
+            ss[i * 2 + 2] = s[i];
+        }
+        int l = ss.length();
+        vector<int> p(l, 1);
+        int id = 0, maxr = 1, maxc = 0;
+        for (int i = 0; i < l; ++i) {
+            if (id + p[id] > i) p[i] = min(p[id * 2 - i], id + p[id] - i);
+            while (ss[i + p[i]] == ss[i - p[i]]) ++p[i];
+            if (i + p[i] > id + p[id]) id = i;
+            if (p[i] > maxr) {
+                maxr = p[i];
+                maxc = i;
+            }
+        }
+        int len = maxr - 1;
+        int left = (maxc - len) / 2;
+        return s.substr(left, len);
     }
 };
 
