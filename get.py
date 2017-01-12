@@ -1,4 +1,4 @@
-#!/bin/python -W ignore
+#!/usr/bin/env python
 
 import re
 from os import makedirs
@@ -6,8 +6,14 @@ from os.path import exists
 from argparse import ArgumentParser
 from multiprocessing import Pool
 
-from requests import get
+import requests
 from bs4 import BeautifulSoup as BS
+
+try:
+    from requests.packages.urllib3.exceptions import InsecureRequestWarning
+    requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+except ImportError:
+    pass
 
 PROBLEMS_API = 'https://leetcode.com/api/problems/{}/'
 PROBLEM_URL = 'https://leetcode.com/problems/{}/'
@@ -53,7 +59,7 @@ PARALLEL = False
 LANGUAGE = 'cpp'
 
 def colorize(str, a, b):
-    return '\033[{};{}m{}\033[0m'.format(a, b, str)
+    return '\033[{};{}m{}\033[0;0m'.format(a, b, str)
 
 strong = lambda str: colorize(str, 1, 31)
 error = lambda str: colorize(str, 0, 31)
@@ -63,14 +69,14 @@ success = lambda str: colorize(str, 0, 32)
 def save(name):
     print(strong('[Processing] ') + name)
 
-    content = get(PROBLEM_URL.format(name), verify=False).content
+    content = requests.get(PROBLEM_URL.format(name), verify=False).content
     soup = BS(content, 'html.parser')
     title = soup.find(class_='question-title')
     if not title:
         print(error('Denied: ') + name)
         return
 
-    title = title.h3.string
+    title = title.h3.string.strip()
     title = '0' * (3 - title.find('.')) + title
     content = soup.find('meta', {'name': 'description'}).attrs['content']
     info = '{}\n{}'.format(title, content)
@@ -107,7 +113,7 @@ def save_all(problemset):
 
 
 def get_problems(type):
-    response = get(PROBLEMS_API.format(type), verify=False).json()
+    response = requests.get(PROBLEMS_API.format(type), verify=False).json()
     problems = response['stat_status_pairs']
     for pair in problems:
         slug = pair['stat']['question__title_slug']
