@@ -1,0 +1,26 @@
+{
+    "version": "0.1.0",
+    "isShellCommand": true,
+    "suppressTaskName": true,
+    "showOutput": "always",
+    "linux": {
+        "command": "sh",
+        "args": ["-c"],
+        "tasks": [{
+            "taskName": "run",
+            "args": [
+                "g++ -std=c++1z '${file}' -o '${fileDirname}/${fileBasenameNoExtension}'; '${fileDirname}/${fileBasenameNoExtension}'"
+            ]
+        }]
+    },
+    "windows": {
+        "command": "powershell",
+        "args": ["-Command"],
+        "tasks": [{
+            "taskName": "run",
+            "args": [
+                "g++ -std=c++1z '${file}' -o '${fileDirname}/${fileBasenameNoExtension}'; & '${fileDirname}/${fileBasenameNoExtension}'"
+            ]
+        }]
+    }
+}
