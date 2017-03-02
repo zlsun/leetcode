@@ -10,12 +10,6 @@ Supposed the linked list is 1 -> 2 -> 3 -> 4 and you are given the third node wi
 #include "../utils.h"
 using namespace std;
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
-
 class Solution {
 public:
     void deleteNode(ListNode* node) {

@@ -11,16 +11,6 @@ Output: 7 -> 0 -> 8
 #include "../utils.h"
 using namespace std;
 
-struct ListNode {
-    int val;
-    ListNode* next;
-    ListNode(int x) : val(x), next(NULL) {}
-    friend ostream& operator << (ostream& os, const ListNode& n) {
-        zlog "{", n.val, n.next, "}";
-        return os;
-    }
-};
-
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {

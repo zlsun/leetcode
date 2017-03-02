@@ -13,11 +13,6 @@ Credits:Special thanks to @mithmatt for adding this problem and creating all tes
 #include <iostream>
 #include "../utils.h"
 using namespace std;
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
 
 class Solution {
 public:
